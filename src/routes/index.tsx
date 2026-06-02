@@ -1,29 +1,495 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Legaciii — Apply for Your Free Strategy Call with Morgan Samuel" },
+      { name: "description", content: "Free 1-on-1 strategy call with Morgan Samuel, licensed Canadian financial advisor (LLQP, PCP). No products. No commission. Limited spots each week." },
+      { property: "og:title", content: "Legaciii — Apply for Your Free Strategy Call" },
+      { property: "og:description", content: "You earn like you've made it. Your net worth says you haven't. Book a free 30-minute call with Morgan Samuel." },
+      { property: "og:type", content: "website" },
     ],
   }),
-  component: Index,
+  component: Landing,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const APPLY_URL = "#apply";
+
+function CTAButton({ label = "See If You Qualify" }: { label?: string }) {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <a href={APPLY_URL} className="btn-primary">
+      {label} <span aria-hidden className="ml-2">→</span>
+    </a>
+  );
+}
+
+function TrustStrip() {
+  return (
+    <p className="trust-strip">
+      Free · ~30 minutes · Licensed advisor (LLQP, PCP) · No products sold · Limited spots each week
+    </p>
+  );
+}
+
+function Landing() {
+  return (
+    <main className="bg-background text-foreground">
+      <Hero />
+      <Trap />
+      <MeetMorgan />
+      <WhatTheCallIs />
+      <WhyMorgan />
+      <Proof />
+      <IsThisForYou />
+      <FinalCTA />
+      <FAQ />
+      <footer className="py-10 text-center text-xs text-muted-foreground border-t">
+        © {new Date().getFullYear()} Legaciii · Morgan Samuel, LLQP · PCP
+      </footer>
+    </main>
+  );
+}
+
+/* ---------- 1. HERO ---------- */
+function Hero() {
+  return (
+    <section className="section pt-16 md:pt-24 pb-16" style={{ background: "var(--color-cream)" }}>
+      <div className="container-narrow text-center">
+        <div className="flex justify-center gap-2 flex-wrap mb-6 text-[11px] font-medium tracking-wider uppercase text-muted-foreground">
+          <span className="px-3 py-1 rounded-full border border-border bg-white">LLQP</span>
+          <span className="px-3 py-1 rounded-full border border-border bg-white">PCP</span>
+          <span className="px-3 py-1 rounded-full border border-border bg-white">Accounting Degree</span>
+          <span className="px-3 py-1 rounded-full border border-border bg-white">~20 Yrs Canadian Client Work</span>
+        </div>
+
+        <h1 className="text-4xl md:text-6xl font-bold leading-[1.05] text-deep">
+          You earn like you've made it.
+          <br />
+          <span style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
+        </h1>
+
+        <p className="mt-6 text-base md:text-lg text-ink leading-relaxed max-w-2xl mx-auto">
+          Watch this short message from <strong>Morgan Samuel</strong> — a licensed Canadian financial advisor (LLQP, PCP) — then book a free, no-obligation strategy call. He'll show you exactly where your money is leaking and what a plan built for your situation actually looks like. No products. No commission. No cookie-cutter advice.
+        </p>
+
+        <div className="mt-10 mx-auto max-w-3xl">
+          <div
+            className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center group cursor-pointer"
+            style={{ background: "var(--gradient-deep)" }}
+          >
+            <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 30% 40%, var(--color-gold) 0%, transparent 60%)" }} />
+            <div className="relative z-10 flex flex-col items-center">
+              <div className="w-20 h-20 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}>
+                <svg viewBox="0 0 24 24" fill="white" className="w-8 h-8 ml-1"><path d="M8 5v14l11-7z" /></svg>
+              </div>
+              <p className="mt-4 text-white/80 text-sm">A message from Morgan · 6 min</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <CTAButton />
+          <TrustStrip />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 2. THE TRAP ---------- */
+function Trap() {
+  return (
+    <section className="section">
+      <div className="container-narrow">
+        <h2 className="text-3xl md:text-5xl font-bold text-center leading-tight">
+          On paper, you're the success story.
+          <br />
+          So why does it feel like you're losing ground every month?
+        </h2>
+
+        <div className="mt-10 space-y-5 text-lg text-ink leading-relaxed">
+          <p>You crossed six figures. Maybe well past it. The income is real. But the money comes in and disappears, and you couldn't tell anyone exactly where it went.</p>
+          <p>Real estate still feels out of reach — even at $150K+. The tax bill feels like a ceiling you can't get over. And underneath all of it is a thought you don't say out loud:</p>
+          <p className="text-2xl md:text-3xl font-semibold text-deep italic border-l-4 pl-6 my-8" style={{ borderColor: "var(--color-gold)" }}>
+            "I make good money. I should be further ahead than this."
+          </p>
+        </div>
+
+        <blockquote
+          className="my-14 p-8 md:p-12 rounded-2xl text-center text-white"
+          style={{ background: "var(--gradient-deep)" }}
+        >
+          <p className="text-2xl md:text-4xl font-semibold leading-snug" style={{ color: "var(--color-cream)" }}>
+            It was never an income problem.
+          </p>
+          <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "#bcbcbc" }}>
+            The discipline that worked when you had nothing quietly stopped working the moment your income climbed — and no one ever replaced it with a system.
+          </p>
+        </blockquote>
+
+        <div className="space-y-5 text-lg text-ink leading-relaxed">
+          <p>The playbook you were handed — max the RRSP, buy the mutual fund, "talk to your guy at the bank" — was built to <strong>park</strong> your money, not grow it.</p>
+          <p>You're not behind because you're careless. You're behind because no one with an actual incentive ever sat down and showed someone in your situation what to do next.</p>
+          <p className="font-semibold text-deep">That's the entire reason Morgan does these calls.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 3. MEET MORGAN ---------- */
+function MeetMorgan() {
+  return (
+    <section className="section" style={{ background: "var(--color-cream)" }}>
+      <div className="container-wide">
+        <div className="grid md:grid-cols-[5fr_7fr] gap-12 items-start">
+          <div className="md:sticky md:top-8">
+            <div
+              className="aspect-[4/5] rounded-2xl overflow-hidden flex items-end justify-center relative"
+              style={{ background: "var(--gradient-deep)", boxShadow: "var(--shadow-card)" }}
+            >
+              <div className="absolute inset-0 opacity-40" style={{ background: "radial-gradient(circle at 50% 30%, var(--color-gold) 0%, transparent 65%)" }} />
+              <div className="relative z-10 text-center pb-10 px-6">
+                <div className="w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold text-white" style={{ background: "var(--gradient-gold)" }}>
+                  MS
+                </div>
+                <p className="text-white/70 text-xs uppercase tracking-widest">Photo of Morgan</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span className="eyebrow">Meet Morgan Samuel</span>
+            <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+              Licensed advisor.
+              <br />
+              Not a guru.
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium">
+              <span className="px-3 py-1 rounded-full text-white" style={{ background: "var(--color-deep)" }}>LLQP</span>
+              <span className="px-3 py-1 rounded-full text-white" style={{ background: "var(--color-deep)" }}>PCP</span>
+              <span className="px-3 py-1 rounded-full text-white" style={{ background: "var(--color-deep)" }}>Accounting Degree</span>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">Not a YouTuber. Not a salesman.</p>
+
+            <div className="mt-8 space-y-5 text-base md:text-lg text-ink leading-relaxed">
+              <p>Morgan has spent nearly two decades across banking, payroll, corporate accounting, insurance, and investments — on both sides of the Canada/US border — sitting across from hundreds of real Canadians solving real money problems.</p>
+              <p>He didn't start ahead. Years ago, earning well above average, he was still burning through thousands a month with no system and no idea where it went. Then a property came up at fire-sale pricing — the kind of opportunity that doesn't come twice — and he couldn't take it. He didn't have the cash. <em>At his income, he should have.</em></p>
+              <p>That was the day he decided to learn the system from the inside out.</p>
+            </div>
+
+            <blockquote
+              className="my-10 p-8 rounded-2xl relative bg-white border-l-4"
+              style={{ borderColor: "var(--color-gold)", boxShadow: "var(--shadow-card)" }}
+            >
+              <span className="absolute -top-4 -left-2 text-7xl leading-none font-serif" style={{ color: "var(--color-gold)" }}>"</span>
+              <p className="text-lg md:text-xl leading-relaxed text-deep relative">
+                Most advisors aren't creative. They run the same RRSP-and-mutual-fund playbook on everyone and call it a plan. But a 35-year-old family in Toronto and a 28-year-old founder in Calgary don't have the same situation — so why would they get the same advice? Sometimes the right move is reducing your income, not raising it. Sometimes the right insurance isn't insurance at all. <strong>I don't do cookie-cutter. I do custom.</strong>
+              </p>
+              <footer className="mt-4 text-sm font-semibold" style={{ color: "var(--color-gold)" }}>— Morgan Samuel</footer>
+            </blockquote>
+
+            <div
+              className="p-5 rounded-xl text-sm md:text-base flex items-start gap-3"
+              style={{ background: "color-mix(in oklab, var(--color-gold) 12%, white)" }}
+            >
+              <span className="text-2xl">🛡️</span>
+              <p className="text-deep">
+                <strong>Morgan isn't paid to sell you a mutual fund, an insurance policy, or anything else.</strong> There is no commission. On your call, his only job is to tell you the truth about your situation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 4. WHAT THE CALL IS ---------- */
+function WhatTheCallIs() {
+  const steps = [
+    { n: "01", t: "Apply", d: "Answer a few short questions so Morgan understands your situation before you talk. (~2 min)" },
+    { n: "02", t: "Get Qualified", d: "If you're a fit, you'll see Morgan's calendar and pick a time. If you're not, he'll be straight with you." },
+    { n: "03", t: "Talk to Morgan", d: "A real 1-on-1 with a licensed advisor. Your numbers, your situation, real direction." },
+  ];
+  return (
+    <section className="section">
+      <div className="container-wide">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="eyebrow">How it works</span>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold">What actually happens on the call</h2>
+          <p className="mt-4 text-xl text-deep font-medium">It's a diagnosis, not a pitch.</p>
+          <p className="mt-6 text-base md:text-lg text-ink leading-relaxed">
+            In about 30 minutes, Morgan walks through your real numbers with you — where your income is actually going, what your tax exposure looks like, whether your credit is working for you or against you, where you're exposed, and what's missing between the money you earn and the wealth you're trying to build.
+          </p>
+          <p className="mt-4 text-base md:text-lg text-ink leading-relaxed">
+            You'll leave with clarity you didn't have when you got on — whether or not you ever speak again. If he sees a clear way he can help you go further, he'll tell you. If he doesn't, he'll tell you that too.
+          </p>
+        </div>
+
+        <div className="mt-14 grid md:grid-cols-3 gap-6">
+          {steps.map((s) => (
+            <div key={s.n} className="p-8 rounded-2xl bg-white border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="text-5xl font-bold mb-4" style={{ color: "var(--color-gold)" }}>{s.n}</div>
+              <h3 className="text-xl font-bold mb-3">{s.t}</h3>
+              <p className="text-ink leading-relaxed">{s.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 max-w-2xl mx-auto text-center text-sm text-muted-foreground space-y-2">
+          <p><strong className="text-deep">Why free?</strong> Morgan would rather earn the right to work with the right people than chase everyone.</p>
+          <p><strong className="text-deep">Why limited?</strong> He takes these calls personally — and there are only so many in a week.</p>
+        </div>
+
+        <div className="mt-10 text-center">
+          <CTAButton />
+          <TrustStrip />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 5. WHY MORGAN ---------- */
+function WhyMorgan() {
+  const rows = [
+    {
+      tried: "The bank advisor — sells products on commission, reads from a script, and is gone at the next branch reshuffle.",
+      morgan: "Licensed and accountable. Paid by no product. Still here next year.",
+    },
+    {
+      tried: "Reddit + index funds — decent information, zero personalization, and no one to tell you what you specifically are missing.",
+      morgan: "A plan built around your numbers, your constraints, your opportunities.",
+    },
+    {
+      tried: "The \"money coach\" — an unregulated title in Canada, often a front end for an insurance or mortgage upsell.",
+      morgan: "LLQP and PCP. Regulated. No commission. No hidden upsell.",
+    },
+    {
+      tried: "The $4K–$10K flat-fee plan — one document, then silence, with no one in your corner when it's time to execute.",
+      morgan: "A real conversation with someone who's done this for two decades.",
+    },
+  ];
+
+  return (
+    <section className="section" style={{ background: "var(--color-deep)" }}>
+      <div className="container-wide">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="eyebrow">The contrast</span>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold" style={{ color: "var(--color-cream)" }}>
+            You've probably tried some version of this before.
+          </h2>
+          <p className="mt-4 text-lg" style={{ color: "#bcbcbc" }}>Here's why it didn't move the needle.</p>
+        </div>
+
+        <div className="mt-14 space-y-4">
+          <div className="hidden md:grid md:grid-cols-2 gap-4 px-2 text-xs uppercase tracking-widest font-semibold" style={{ color: "#888" }}>
+            <div>What you've tried</div>
+            <div style={{ color: "var(--color-gold)" }}>With Morgan</div>
+          </div>
+          {rows.map((r, i) => (
+            <div key={i} className="grid md:grid-cols-2 gap-4">
+              <div className="p-6 rounded-xl text-base leading-relaxed" style={{ background: "#1a2828", color: "#bcbcbc" }}>
+                <div className="md:hidden text-xs uppercase tracking-widest font-semibold mb-2" style={{ color: "#888" }}>What you've tried</div>
+                {r.tried}
+              </div>
+              <div
+                className="p-6 rounded-xl text-base leading-relaxed font-medium relative"
+                style={{ background: "var(--gradient-gold)", color: "white" }}
+              >
+                <div className="md:hidden text-xs uppercase tracking-widest font-semibold mb-2 text-white/70">With Morgan</div>
+                {r.morgan}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 6. PROOF ---------- */
+function Proof() {
+  const cards = [
+    "A client raised their credit score by roughly 100 points in about a month — enough to change what they qualified for.",
+    "Another grew their savings by about half in six weeks, mostly by finally seeing where the money was going.",
+    "Another cut their taxable income through income splitting and kept roughly $5,000 that was headed to the CRA.",
+    "Another set up a structure that quietly becomes a tax-advantaged head start for their kids.",
+  ];
+  return (
+    <section className="section">
+      <div className="container-wide">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="eyebrow">Real client work</span>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold">He was doing this long before it had a name.</h2>
+          <p className="mt-4 text-lg text-ink">These came from real client work — years before any program existed.</p>
+        </div>
+
+        <div className="mt-14 grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
+          {cards.map((c, i) => (
+            <div
+              key={i}
+              className="p-7 rounded-2xl border border-border bg-white relative"
+              style={{ boxShadow: "var(--shadow-card)" }}
+            >
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 text-white font-bold" style={{ background: "var(--gradient-gold)" }}>
+                ✓
+              </div>
+              <p className="text-ink leading-relaxed">{c}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 text-center text-sm text-muted-foreground max-w-xl mx-auto italic">
+          No hype. No "get rich quick." Just the kind of moves a real advisor makes once he actually looks at your situation.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 7. IS THIS FOR YOU ---------- */
+function IsThisForYou() {
+  const yes = [
+    "You're a high-earning Canadian (roughly $120K+ household).",
+    "You earn well but know your wealth doesn't reflect it.",
+    "You're done with cookie-cutter advice and product pitches.",
+    "You're ready to actually do the work — not just collect more information.",
+  ];
+  const no = [
+    "You're looking for a get-rich-quick scheme.",
+    "You want someone to do it all for you while you stay hands-off.",
+    "You're not in a position to act on what you'd find.",
+    "You're convinced the only answer is \"more income.\"",
+  ];
+
+  return (
+    <section className="section" style={{ background: "var(--color-cream)" }}>
+      <div className="container-wide">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="eyebrow">The filter</span>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold">This call isn't for everyone.</h2>
+          <p className="mt-4 text-lg text-ink">Morgan takes only a handful a week. Here's who they're for.</p>
+        </div>
+
+        <div className="mt-14 grid md:grid-cols-2 gap-6">
+          <div className="p-8 rounded-2xl bg-white border-2" style={{ borderColor: "var(--color-gold)", boxShadow: "var(--shadow-card)" }}>
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2" style={{ color: "var(--color-gold)" }}>
+              <span className="inline-flex w-8 h-8 rounded-full items-center justify-center text-white text-sm" style={{ background: "var(--gradient-gold)" }}>✓</span>
+              This is for you if…
+            </h3>
+            <ul className="space-y-4">
+              {yes.map((t, i) => (
+                <li key={i} className="flex gap-3 text-ink leading-relaxed">
+                  <span style={{ color: "var(--color-gold)" }} className="font-bold mt-0.5">✓</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="p-8 rounded-2xl bg-white border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-muted-foreground">
+              <span className="inline-flex w-8 h-8 rounded-full items-center justify-center text-white text-sm bg-muted-foreground">✕</span>
+              This isn't for you if…
+            </h3>
+            <ul className="space-y-4">
+              {no.map((t, i) => (
+                <li key={i} className="flex gap-3 text-muted-foreground leading-relaxed">
+                  <span className="font-bold mt-0.5">✕</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 text-center">
+          <CTAButton />
+          <TrustStrip />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 8. FINAL CTA ---------- */
+function FinalCTA() {
+  return (
+    <section id="apply" className="section" style={{ background: "var(--gradient-deep)" }}>
+      <div className="container-narrow text-center">
+        <span className="eyebrow">The cost of inaction</span>
+        <h2 className="mt-4 text-4xl md:text-6xl font-bold leading-tight" style={{ color: "var(--color-cream)" }}>
+          Every month without a system is a month you don't get back.
+        </h2>
+        <p className="mt-8 text-lg md:text-xl leading-relaxed" style={{ color: "#bcbcbc" }}>
+          The tax you didn't plan for is already gone. The borrowing power you never built cost you the deal. The income that got absorbed this month compounds into nothing.
+        </p>
+        <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-cream)" }}>
+          You can keep earning well and hoping it sorts itself out — <strong>or</strong> you can spend 30 minutes with someone who's done this for two decades and find out exactly where you stand.
+        </p>
+
+        <p className="mt-10 text-sm uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
+          Morgan is taking a limited number of calls this week.
+        </p>
+
+        <div className="mt-6">
+          <CTAButton />
+          <p className="trust-strip" style={{ color: "#888" }}>
+            Free · ~30 minutes · No products, no commission · Limited spots each week
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 9. FAQ ---------- */
+function FAQ() {
+  const items = [
+    { q: "Is the call really free?", a: "Yes. No card, no catch. Morgan would rather start by being useful." },
+    { q: "Are you going to try to sell me something?", a: "It's a strategy session, not a pitch. Morgan gives you real direction first. If there's a clear way he can help you further, he'll say so — and you decide. No pressure either way." },
+    { q: "Is Morgan actually licensed?", a: "Yes — LLQP and PCP, plus an accounting degree and nearly 20 years of real client work. Not a coach with a title he gave himself." },
+    { q: "Do I need a certain income?", a: "These calls are built for high earners (roughly $120K+ household). The short application makes sure it's a fit before anyone's time is spent." },
+    { q: "What happens after I apply?", a: "If you qualify, you'll pick a time on Morgan's calendar right away. If not, you'll know quickly." },
+  ];
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <section className="section">
+      <div className="container-narrow">
+        <div className="text-center">
+          <span className="eyebrow">FAQ</span>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold">A few honest answers</h2>
+        </div>
+
+        <div className="mt-12 space-y-3">
+          {items.map((it, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={i} className="rounded-xl border border-border bg-white overflow-hidden" style={{ boxShadow: isOpen ? "var(--shadow-card)" : "none" }}>
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-muted/40 transition"
+                >
+                  <span className="font-semibold text-deep text-base md:text-lg">{it.q}</span>
+                  <span className={`text-2xl transition-transform ${isOpen ? "rotate-45" : ""}`} style={{ color: "var(--color-gold)" }}>+</span>
+                </button>
+                {isOpen && (
+                  <div className="px-6 pb-6 text-ink leading-relaxed">{it.a}</div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-lg mb-4 text-deep font-medium">Ready?</p>
+          <CTAButton />
+          <TrustStrip />
+        </div>
+      </div>
+    </section>
   );
 }
