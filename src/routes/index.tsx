@@ -89,7 +89,7 @@ function Hero() {
         </h1>
 
         <p className="mt-6 text-base md:text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--color-ink)" }}>
-          Watch this short message from <strong style={{ color: "var(--color-cream)" }}>Morgan Samuel</strong>, a licensed Canadian financial advisor (LLQP, PCP), then book a free, no obligation strategy call. He'll show you exactly where your money is leaking and what a plan built for your situation actually looks like. No products. No commission. No cookie cutter advice.
+          I'm <strong style={{ color: "var(--color-cream)" }}>Morgan Samuel</strong>, founder of Legaciii Academy and a licensed Canadian financial advisor (LLQP, PCP). Watch my short message below, then book a free, no obligation strategy call with me. I'll show you exactly where your money is leaking and what a plan built for your situation actually looks like. No products. No commission. No cookie cutter advice.
         </p>
 
         <div className="mt-10 mx-auto max-w-5xl">
@@ -150,7 +150,7 @@ function Trap() {
         <div className="space-y-5 text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
           <p>The playbook you were handed (max the RRSP, buy the mutual fund, "talk to your guy at the bank") was built to <strong style={{ color: "var(--color-cream)" }}>park</strong> your money, not grow it.</p>
           <p>You're not behind because you're careless. You're behind because no one with an actual incentive ever sat down and showed someone in your situation what to do next.</p>
-          <p className="font-semibold" style={{ color: "var(--color-cream)" }}>That's the entire reason Morgan does these calls.</p>
+          <p className="font-semibold" style={{ color: "var(--color-cream)" }}>That's the entire reason I do these calls.</p>
         </div>
       </div>
     </section>
@@ -179,23 +179,22 @@ function MeetMorgan() {
           </div>
 
           <div>
-            <span className="eyebrow">Meet Morgan Samuel</span>
+            <span className="eyebrow">My Story</span>
             <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-              Licensed advisor.
-              <br />
-              Not a guru.
+              Hi, I'm Morgan.
             </h2>
             <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium">
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>LLQP</span>
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>PCP</span>
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>Accounting Degree</span>
             </div>
-            <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Not a YouTuber. Not a salesman.</p>
+            <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Founder of Legaciii Academy. Not a guru, not a YouTuber, not a salesman.</p>
 
             <div className="mt-8 space-y-5 text-base md:text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
-              <p>Morgan has spent nearly two decades across banking, payroll, corporate accounting, insurance, and investments, on both sides of the Canada/US border, sitting across from hundreds of real Canadians solving real money problems.</p>
-              <p>He didn't start ahead. Years ago, earning well above average, he was still burning through thousands a month with no system and no idea where it went. Then a property came up at fire sale pricing (the kind of opportunity that doesn't come twice) and he couldn't take it. He didn't have the cash. <em>At his income, he should have.</em></p>
-              <p>That was the day he decided to learn the system from the inside out.</p>
+              <p>I've spent nearly two decades across banking, payroll, corporate accounting, insurance, and investments, on both sides of the Canada/US border, sitting across from hundreds of real Canadians solving real money problems.</p>
+              <p>I didn't start ahead. Years ago, earning well above average, I was still burning through thousands a month with no system and no idea where it went. Then a property came up at fire sale pricing (the kind of opportunity that doesn't come twice) and I couldn't take it. I didn't have the cash. <em>At my income, I should have.</em></p>
+              <p>That was the day I decided to learn the system from the inside out.</p>
+              <p>Everything I do now, including Legaciii Academy, came out of that.</p>
             </div>
 
             <blockquote
@@ -206,7 +205,6 @@ function MeetMorgan() {
               <p className="text-lg md:text-xl leading-relaxed relative" style={{ color: "var(--color-cream)" }}>
                 Most advisors aren't creative. They run the same RRSP and mutual fund playbook on everyone and call it a plan. But a 35 year old family in Toronto and a 28 year old founder in Calgary don't have the same situation, so why would they get the same advice? Sometimes the right move is reducing your income, not raising it. Sometimes the right insurance isn't insurance at all. <strong>I don't do cookie cutter. I do custom.</strong>
               </p>
-              <footer className="mt-4 text-sm font-semibold" style={{ color: "var(--color-gold)" }}>Morgan Samuel</footer>
             </blockquote>
 
             <div
@@ -215,7 +213,7 @@ function MeetMorgan() {
             >
               <span className="text-2xl">🛡️</span>
               <p style={{ color: "var(--color-cream)" }}>
-                <strong>Morgan isn't paid to sell you a mutual fund, an insurance policy, or anything else.</strong> There is no commission. On your call, his only job is to tell you the truth about your situation.
+                <strong>I'm not paid to sell you a mutual fund, an insurance policy, or anything else.</strong> There is no commission. On our call, my only job is to tell you the truth about your situation.
               </p>
             </div>
           </div>
@@ -357,7 +355,7 @@ function WhyMorgan() {
 /* ---------- 6. PROOF ---------- */
 function Proof() {
   const cards = [
-    "A client raised their credit score by roughly 100 points in about a month, enough to change what they qualified for.",
+    "One client I worked with raised their credit score by roughly 100 points in about a month, enough to change what they qualified for.",
     "Another grew their savings by about half in six weeks, mostly by finally seeing where the money was going.",
     "Another cut their taxable income through income splitting and kept roughly $5,000 that was headed to the CRA.",
     "Another set up a structure that quietly becomes a tax advantaged head start for their kids.",
@@ -367,7 +365,7 @@ function Proof() {
       <div className="container-wide">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Real client work</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold">He was doing this long before it had a name.</h2>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold">I've been doing this long before it had a name.</h2>
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>These came from real client work, years before any program existed.</p>
         </div>
 
@@ -387,7 +385,7 @@ function Proof() {
         </div>
 
         <p className="mt-10 text-center text-sm max-w-xl mx-auto italic" style={{ color: "var(--color-ink-soft)" }}>
-          No hype. No "get rich quick." Just the kind of moves a real advisor makes once he actually looks at your situation.
+          No hype. No "get rich quick." Just the kind of moves I make once I actually sit down with someone's numbers.
         </p>
       </div>
     </section>
@@ -415,7 +413,7 @@ function IsThisForYou() {
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">The filter</span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold">This call isn't for everyone.</h2>
-          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>Morgan takes only a handful a week. Here's who they're for.</p>
+          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>I only take a handful a week. Here's who they're for.</p>
         </div>
 
         <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -471,11 +469,11 @@ function FinalCTA() {
           The tax you didn't plan for is already gone. The borrowing power you never built cost you the deal. The income that got absorbed this month compounds into nothing.
         </p>
         <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-cream)" }}>
-          You can keep earning well and hoping it sorts itself out, <strong>or</strong> you can spend 30 minutes with someone who's done this for two decades and find out exactly where you stand.
+          You can keep earning well and hoping it sorts itself out, <strong>or</strong> you can spend 30 minutes with me and find out exactly where you stand.
         </p>
 
         <p className="mt-10 text-sm uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
-          Morgan is taking a limited number of calls this week.
+          I'm taking a limited number of calls this week.
         </p>
 
         <div className="mt-6">
@@ -492,11 +490,11 @@ function FinalCTA() {
 /* ---------- 9. FAQ ---------- */
 function FAQ() {
   const items = [
-    { q: "Is the call really free?", a: "Yes. No card, no catch. Morgan would rather start by being useful." },
-    { q: "Are you going to try to sell me something?", a: "It's a strategy session, not a pitch. Morgan gives you real direction first. If there's a clear way he can help you further, he'll say so, and you decide. No pressure either way." },
-    { q: "Is Morgan actually licensed?", a: "Yes. LLQP and PCP, plus an accounting degree and nearly 20 years of real client work. Not a coach with a title he gave himself." },
-    { q: "Do I need a certain income?", a: "These calls are built for high earners (roughly $120K+ household). The short application makes sure it's a fit before anyone's time is spent." },
-    { q: "What happens after I apply?", a: "If you qualify, you'll pick a time on Morgan's calendar right away. If not, you'll know quickly." },
+    { q: "Is the call really free?", a: "Yes. No card, no catch. I'd rather start by being useful." },
+    { q: "Are you going to try to sell me something?", a: "It's a strategy session, not a pitch. I'll give you real direction first. If there's a clear way I can help you further, I'll say so, and you decide. No pressure either way." },
+    { q: "Are you actually licensed?", a: "Yes. LLQP and PCP, plus an accounting degree and nearly 20 years of real client work. Not a coach with a title I gave myself." },
+    { q: "Do I need a certain income?", a: "These calls are built for high earners (roughly $120K+ household). The short application makes sure it's a fit before either of us spends time." },
+    { q: "What happens after I apply?", a: "If you qualify, you'll pick a time on my calendar right away. If not, you'll know quickly." },
   ];
   const [open, setOpen] = useState<number | null>(0);
 
