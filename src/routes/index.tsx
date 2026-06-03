@@ -1,5 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
+import logo from "../../LP images/leagciii-logo.webp";
+import morganMain from "../../LP images/Morgan-main.JPG";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -14,13 +16,11 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const APPLY_URL = "#apply";
-
 function CTAButton({ label = "See If You Qualify" }: { label?: string }) {
   return (
-    <a href={APPLY_URL} className="btn-primary">
+    <Link to="/apply" className="btn-primary">
       {label} <span aria-hidden className="ml-2">→</span>
-    </a>
+    </Link>
   );
 }
 
@@ -32,27 +32,62 @@ function TrustStrip() {
   );
 }
 
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const scrolled = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      if (height > 0) {
+        setProgress((scrolled / height) * 100);
+      }
+    };
+
+    window.addEventListener("scroll", updateProgress);
+    return () => window.removeEventListener("scroll", updateProgress);
+  }, []);
+
+  return (
+    <div 
+      className="absolute bottom-0 left-0 h-1 transition-all duration-150 ease-out" 
+      style={{ 
+        width: `${progress}%`, 
+        background: "var(--gradient-gold)",
+        boxShadow: "0 0 10px var(--color-gold)"
+      }} 
+    />
+  );
+}
+
 function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md" style={{ background: "color-mix(in oklab, var(--color-deep) 75%, transparent)", borderBottom: "1px solid color-mix(in oklab, var(--color-gold) 18%, transparent)" }}>
       <div className="container-wide flex items-center justify-between px-5 py-2.5">
         <a href="#top" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-md flex items-center justify-center font-bold text-sm" style={{ background: "var(--gradient-gold)", color: "var(--color-deep)" }}>
-            L
-          </div>
-          <span className="font-semibold tracking-tight text-cream">Legaciii</span>
+          <img src={logo} alt="Legaciii" className="h-14 w-auto" />
         </a>
-        <a href={APPLY_URL} className="btn-primary" style={{ padding: "0.55rem 1.1rem", fontSize: "0.85rem" }}>
-          Apply Now
-        </a>
+        <Link to="/apply" className="btn-primary" style={{ padding: "0.55rem 1.1rem", fontSize: "0.85rem" }}>
+          See if you qualify
+        </Link>
       </div>
+      <ScrollProgress />
     </header>
   );
 }
 
 function Landing() {
+  useEffect(() => {
+    // Force scroll to top on mount (covers refresh)
+    window.scrollTo(0, 0);
+    // Also prevent browser from restoring scroll position if possible
+    if ('scrollRestoration' in history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   return (
-    <main id="top" className="text-foreground">
+    <main id="top" className="text-foreground" style={{ backgroundColor: "#000421" }}>
       <Header />
       <Hero />
       <Trap />
@@ -73,13 +108,28 @@ function Landing() {
 /* ---------- 1. HERO ---------- */
 function Hero() {
   return (
-    <section className="section pt-14 md:pt-20 pb-16">
-      <div className="container-wide text-center">
+    <section className="section pt-14 md:pt-20 pb-16 relative overflow-hidden">
+      {/* Shine Effect Gradient from Top */}
+      <div 
+        className="absolute top-0 left-0 right-0 pointer-events-none" 
+        style={{ 
+          background: "radial-gradient(circle at 50% 0%, #002222 0%, transparent 80%)",
+          height: "600px",
+          zIndex: 0
+        }} 
+      />
+      
+      <div className="container-wide text-center relative z-10">
+        <span className="eyebrow mb-6">Licensed advisor. 20 years. Hundreds of Canadians to real wealth.</span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl mx-auto">
           You earn like you've made it.
           <br />
           <span style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
         </h1>
+
+        <p className="mt-8 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
+          There's a specific reason high earners in Canada stay behind. It's not what you've been told.
+        </p>
 
         <div className="mt-10 mx-auto max-w-5xl">
           <div
@@ -87,17 +137,16 @@ function Hero() {
             style={{ background: "var(--gradient-deep)", border: "1px solid color-mix(in oklab, var(--color-gold) 25%, transparent)" }}
           >
             <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 30% 40%, var(--color-gold) 0%, transparent 60%)" }} />
-            <div className="relative z-10 flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}>
-                <svg viewBox="0 0 24 24" fill="white" className="w-8 h-8 ml-1"><path d="M8 5v14l11-7z" /></svg>
-              </div>
-              <p className="mt-4 text-white/80 text-sm">A message from Morgan · 6 min</p>
-            </div>
           </div>
         </div>
 
-        <div className="mt-10">
-          <CTAButton />
+        <div className="mt-12">
+          <p className="mb-6 text-sm uppercase tracking-widest font-semibold" style={{ color: "var(--color-gold)" }}>
+            I'm taking a limited number of calls this week.
+          </p>
+          <Link to="/apply" className="btn-primary text-lg px-10 py-5">
+            See If You Qualify <span aria-hidden className="ml-2">→</span>
+          </Link>
           <TrustStrip />
         </div>
       </div>
@@ -154,13 +203,14 @@ function MeetMorgan() {
         <div className="grid md:grid-cols-[5fr_7fr] gap-12 items-start">
           <div className="md:sticky md:top-24">
             <div
-              className="aspect-[4/5] rounded-2xl overflow-hidden flex items-end justify-center relative"
-              style={{ background: "var(--gradient-deep)", boxShadow: "var(--shadow-card)", border: "1px solid color-mix(in oklab, var(--color-gold) 22%, transparent)" }}
+              className="aspect-[4/5] rounded-2xl overflow-hidden relative"
+              style={{ boxShadow: "var(--shadow-card)", border: "1px solid color-mix(in oklab, var(--color-gold) 22%, transparent)" }}
             >
-              <div className="absolute inset-0 opacity-40" style={{ background: "radial-gradient(circle at 50% 30%, var(--color-gold) 0%, transparent 65%)" }} />
-              <div className="relative z-10 text-center pb-10 px-6">
-                <p className="text-white/70 text-xs uppercase tracking-widest">Photo of Morgan</p>
-              </div>
+              <img 
+                src={morganMain} 
+                alt="Morgan Samuel" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -170,10 +220,10 @@ function MeetMorgan() {
               Hi, I'm Morgan.
             </h2>
             <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium">
-              <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>LLQP</span>
-              <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>PCP</span>
+              <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>licensed financial advisor</span>
+              <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>20 years</span>
             </div>
-            <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Founder of Legaciii Academy. Not a guru, not a YouTuber, not a salesman.</p>
+            <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Founder of Legaciii Academy.</p>
 
             <div className="mt-8 space-y-5 text-base md:text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
               <p>I've spent nearly two decades across banking, payroll, corporate accounting, insurance, and investments, on both sides of the Canada/US border, sitting across from hundreds of real Canadians solving real money problems.</p>
@@ -305,20 +355,20 @@ function WalkAway() {
 function WhyMorgan() {
   const rows = [
     {
-      tried: "The bank advisor. Sells products on commission, reads from a script, and is gone at the next branch reshuffle.",
-      morgan: "A straight answer. Even when the straight answer is \"you don't actually need me right now.\" Nothing dressed up to sell you something.",
+      tried: "Your bank's advisor. Sold you funds, earned a commission, and rotated out before you learned their name.",
+      morgan: "Straight answers, with nothing waiting to be sold to you at the end.",
     },
     {
-      tried: "Reddit + index funds. Decent information, zero personalization, and no one to tell you what you specifically are missing.",
-      morgan: "Specifics built around your situation. Your tax bracket, your spouse, your goals, your blind spots, not a subreddit's \"general advice for the average person.\"",
+      tried: "Figuring it out yourself. A hundred open tabs, conflicting advice, and the constant feeling you're still missing something.",
+      morgan: "A plan built around your life, not a stranger's average.",
     },
     {
-      tried: "The \"money coach.\" An unregulated title in Canada, often a front end for an insurance or mortgage upsell.",
-      morgan: "Direction you can use this week. Not a 90 minute pitch ending in a product you didn't ask about.",
+      tried: "A \"money coach.\" A slick course and a made-up title that turned into a sales pitch the moment you trusted it.",
+      morgan: "You always know exactly what I'm telling you and why. No hidden agenda.",
     },
     {
-      tried: "The $4K to $10K flat fee plan. One document, then silence, with no one in your corner when it's time to actually execute.",
-      morgan: "A real conversation. Your questions answered out loud, in plain English. Nothing you'll have to re read and decode later.",
+      tried: "A one-time financial plan. A thick PDF, a big invoice, and silence the second you actually needed help.",
+      morgan: "Someone still in your corner when it's time to actually do it.",
     },
   ];
 
@@ -326,7 +376,7 @@ function WhyMorgan() {
     <section className="section" style={{ background: "color-mix(in oklab, var(--color-navy) 60%, var(--color-deep))" }}>
       <div className="container-wide max-w-4xl">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow">The contrast</span>
+          <span className="eyebrow">The difference</span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold" style={{ color: "var(--color-cream)" }}>
             You've probably tried some version of this before.
           </h2>
@@ -368,20 +418,20 @@ function WhyMorgan() {
 function Proof() {
   const testimonials = [
     {
-      text: "Sarah raised her credit score by roughly 100 points in about a month, enough to change what she qualified for.",
-      author: "Sarah J. (Ontario)",
+      text: "I raised my credit score about 100 points in a month. Enough to finally qualify for the place we wanted.",
+      author: "Sarah J., Ontario",
     },
     {
-      text: "Mark grew his savings by about half in six weeks, mostly by finally seeing where the money was going.",
-      author: "Mark D. (BC)",
+      text: "I grew my savings by half in six weeks, just from finally seeing where my money was actually going.",
+      author: "Mark D., BC",
     },
     {
-      text: "Eleanor cut her taxable income through income splitting and kept roughly $5,000 that was headed to the CRA.",
-      author: "Eleanor R. (Alberta)",
+      text: "I kept about $5,000 that was headed straight to the CRA, just by splitting our income the right way.",
+      author: "Eleanor R., Alberta",
     },
     {
-      text: "David set up a structure that quietly becomes a tax-advantaged head start for his kids.",
-      author: "David P. (Quebec)",
+      text: "I set up a structure that's quietly building a tax-free head start for my kids.",
+      author: "David K., Ontario",
     },
   ];
 
@@ -461,7 +511,7 @@ function IsThisForYou() {
     <section className="section" style={{ background: "color-mix(in oklab, var(--color-navy) 50%, var(--color-deep))" }}>
       <div className="container-wide">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow">The filter</span>
+          <span className="eyebrow">BEFORE YOU BOOK</span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold">This call isn't for everyone.</h2>
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>I only take a handful a week. Here's who they're for.</p>
         </div>
@@ -509,7 +559,7 @@ function IsThisForYou() {
 /* ---------- 8. FINAL CTA ---------- */
 function FinalCTA() {
   return (
-    <section id="apply" className="section" style={{ background: "var(--gradient-deep)" }}>
+    <section className="section" style={{ background: "var(--gradient-deep)" }}>
       <div className="container-narrow text-center">
         <span className="eyebrow">The cost of inaction</span>
         <h2 className="mt-4 text-4xl md:text-6xl font-bold leading-tight" style={{ color: "var(--color-cream)" }}>
@@ -540,11 +590,22 @@ function FinalCTA() {
 /* ---------- 9. FAQ ---------- */
 function FAQ() {
   const items = [
-    { q: "Is the call really free?", a: "Yes. No card, no catch. I'd rather start by being useful." },
-    { q: "Are you going to try to sell me something?", a: "It's a strategy session, not a pitch. I'll give you real direction first. If there's a clear way I can help you further, I'll say so, and you decide. No pressure either way." },
-    { q: "Are you actually licensed?", a: "Yes. LLQP and PCP, plus an accounting degree and nearly 20 years of real client work. Not a coach with a title I gave myself." },
-    { q: "Do I need a certain income?", a: "These calls are built for high earners (roughly $120K+ household). The short application makes sure it's a fit before either of us spends time." },
-    { q: "What happens after I apply?", a: "If you qualify, you'll pick a time on my calendar right away. If not, you'll know quickly." },
+    { 
+      q: "Why is this free? What's the catch?", 
+      a: "No catch. The fastest way to show you I'm different from everyone who's let you down is to be useful first. Some people I talk to want to keep working together after. Most don't, and that's fine. You walk away with real direction either way." 
+    },
+    { 
+      q: "What will i get out of this?", 
+      a: "You'll get a straight read on your real situation: where your money's going, what you're leaving on the table, and what to do next. Specific to you, not the generic stuff you've already heard." 
+    },
+    { 
+      q: "I've already read all the advice and tried a few things. What's different here?", 
+      a: "The problem was never information. It's that nobody's looked at your actual numbers and told you the actual moves that fit your income, your taxes, and your goals. Free advice is written for the average person. You're not average." 
+    },
+    { 
+      q: "How do I know this isn't another program that overpromises?", 
+      a: "Because I'm not promising you anything on this call except 30 honest minutes. I've done this for real Canadians for 20 years, not sold a dream. Get on, see if what I tell you is worth something, and decide for yourself." 
+    },
   ];
   const [open, setOpen] = useState<number | null>(0);
 
