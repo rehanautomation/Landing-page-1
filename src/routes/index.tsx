@@ -89,7 +89,7 @@ function Hero() {
         </h1>
 
         <p className="mt-6 text-base md:text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--color-ink)" }}>
-          Watch this short message from <strong style={{ color: "var(--color-cream)" }}>Morgan Samuel</strong>, a licensed Canadian financial advisor (LLQP, PCP), then book a free, no obligation strategy call. He'll show you exactly where your money is leaking and what a plan built for your situation actually looks like. No products. No commission. No cookie cutter advice.
+          I'm <strong style={{ color: "var(--color-cream)" }}>Morgan Samuel</strong>, founder of Legaciii Academy and a licensed Canadian financial advisor (LLQP, PCP). Watch my short message below, then book a free, no obligation strategy call with me. I'll show you exactly where your money is leaking and what a plan built for your situation actually looks like. No products. No commission. No cookie cutter advice.
         </p>
 
         <div className="mt-10 mx-auto max-w-5xl">
