@@ -355,7 +355,7 @@ function WhyMorgan() {
 /* ---------- 6. PROOF ---------- */
 function Proof() {
   const cards = [
-    "A client raised their credit score by roughly 100 points in about a month, enough to change what they qualified for.",
+    "One client I worked with raised their credit score by roughly 100 points in about a month, enough to change what they qualified for.",
     "Another grew their savings by about half in six weeks, mostly by finally seeing where the money was going.",
     "Another cut their taxable income through income splitting and kept roughly $5,000 that was headed to the CRA.",
     "Another set up a structure that quietly becomes a tax advantaged head start for their kids.",
