@@ -490,11 +490,11 @@ function FinalCTA() {
 /* ---------- 9. FAQ ---------- */
 function FAQ() {
   const items = [
-    { q: "Is the call really free?", a: "Yes. No card, no catch. Morgan would rather start by being useful." },
-    { q: "Are you going to try to sell me something?", a: "It's a strategy session, not a pitch. Morgan gives you real direction first. If there's a clear way he can help you further, he'll say so, and you decide. No pressure either way." },
-    { q: "Is Morgan actually licensed?", a: "Yes. LLQP and PCP, plus an accounting degree and nearly 20 years of real client work. Not a coach with a title he gave himself." },
-    { q: "Do I need a certain income?", a: "These calls are built for high earners (roughly $120K+ household). The short application makes sure it's a fit before anyone's time is spent." },
-    { q: "What happens after I apply?", a: "If you qualify, you'll pick a time on Morgan's calendar right away. If not, you'll know quickly." },
+    { q: "Is the call really free?", a: "Yes. No card, no catch. I'd rather start by being useful." },
+    { q: "Are you going to try to sell me something?", a: "It's a strategy session, not a pitch. I'll give you real direction first. If there's a clear way I can help you further, I'll say so, and you decide. No pressure either way." },
+    { q: "Are you actually licensed?", a: "Yes. LLQP and PCP, plus an accounting degree and nearly 20 years of real client work. Not a coach with a title I gave myself." },
+    { q: "Do I need a certain income?", a: "These calls are built for high earners (roughly $120K+ household). The short application makes sure it's a fit before either of us spends time." },
+    { q: "What happens after I apply?", a: "If you qualify, you'll pick a time on my calendar right away. If not, you'll know quickly." },
   ];
   const [open, setOpen] = useState<number | null>(0);
 
