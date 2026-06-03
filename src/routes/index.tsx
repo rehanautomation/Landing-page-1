@@ -469,11 +469,11 @@ function FinalCTA() {
           The tax you didn't plan for is already gone. The borrowing power you never built cost you the deal. The income that got absorbed this month compounds into nothing.
         </p>
         <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-cream)" }}>
-          You can keep earning well and hoping it sorts itself out, <strong>or</strong> you can spend 30 minutes with someone who's done this for two decades and find out exactly where you stand.
+          You can keep earning well and hoping it sorts itself out, <strong>or</strong> you can spend 30 minutes with me and find out exactly where you stand.
         </p>
 
         <p className="mt-10 text-sm uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
-          Morgan is taking a limited number of calls this week.
+          I'm taking a limited number of calls this week.
         </p>
 
         <div className="mt-6">
