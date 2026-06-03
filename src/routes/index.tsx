@@ -413,7 +413,7 @@ function IsThisForYou() {
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">The filter</span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold">This call isn't for everyone.</h2>
-          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>Morgan takes only a handful a week. Here's who they're for.</p>
+          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>I only take a handful a week. Here's who they're for.</p>
         </div>
 
         <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
