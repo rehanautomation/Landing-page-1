@@ -385,7 +385,7 @@ function Proof() {
         </div>
 
         <p className="mt-10 text-center text-sm max-w-xl mx-auto italic" style={{ color: "var(--color-ink-soft)" }}>
-          No hype. No "get rich quick." Just the kind of moves a real advisor makes once he actually looks at your situation.
+          No hype. No "get rich quick." Just the kind of moves I make once I actually sit down with someone's numbers.
         </p>
       </div>
     </section>
