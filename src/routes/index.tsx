@@ -365,7 +365,7 @@ function Proof() {
       <div className="container-wide">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Real client work</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold">He was doing this long before it had a name.</h2>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold">I've been doing this long before it had a name.</h2>
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>These came from real client work, years before any program existed.</p>
         </div>
 
