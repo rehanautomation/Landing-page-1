@@ -179,23 +179,22 @@ function MeetMorgan() {
           </div>
 
           <div>
-            <span className="eyebrow">Meet Morgan Samuel</span>
+            <span className="eyebrow">My Story</span>
             <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-              Licensed advisor.
-              <br />
-              Not a guru.
+              Hi, I'm Morgan.
             </h2>
             <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium">
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>LLQP</span>
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>PCP</span>
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>Accounting Degree</span>
             </div>
-            <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Not a YouTuber. Not a salesman.</p>
+            <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Founder of Legaciii Academy. Not a guru, not a YouTuber, not a salesman.</p>
 
             <div className="mt-8 space-y-5 text-base md:text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
-              <p>Morgan has spent nearly two decades across banking, payroll, corporate accounting, insurance, and investments, on both sides of the Canada/US border, sitting across from hundreds of real Canadians solving real money problems.</p>
-              <p>He didn't start ahead. Years ago, earning well above average, he was still burning through thousands a month with no system and no idea where it went. Then a property came up at fire sale pricing (the kind of opportunity that doesn't come twice) and he couldn't take it. He didn't have the cash. <em>At his income, he should have.</em></p>
-              <p>That was the day he decided to learn the system from the inside out.</p>
+              <p>I've spent nearly two decades across banking, payroll, corporate accounting, insurance, and investments, on both sides of the Canada/US border, sitting across from hundreds of real Canadians solving real money problems.</p>
+              <p>I didn't start ahead. Years ago, earning well above average, I was still burning through thousands a month with no system and no idea where it went. Then a property came up at fire sale pricing (the kind of opportunity that doesn't come twice) and I couldn't take it. I didn't have the cash. <em>At my income, I should have.</em></p>
+              <p>That was the day I decided to learn the system from the inside out.</p>
+              <p>Everything I do now, including Legaciii Academy, came out of that.</p>
             </div>
 
             <blockquote
@@ -206,7 +205,6 @@ function MeetMorgan() {
               <p className="text-lg md:text-xl leading-relaxed relative" style={{ color: "var(--color-cream)" }}>
                 Most advisors aren't creative. They run the same RRSP and mutual fund playbook on everyone and call it a plan. But a 35 year old family in Toronto and a 28 year old founder in Calgary don't have the same situation, so why would they get the same advice? Sometimes the right move is reducing your income, not raising it. Sometimes the right insurance isn't insurance at all. <strong>I don't do cookie cutter. I do custom.</strong>
               </p>
-              <footer className="mt-4 text-sm font-semibold" style={{ color: "var(--color-gold)" }}>Morgan Samuel</footer>
             </blockquote>
 
             <div
@@ -215,7 +213,7 @@ function MeetMorgan() {
             >
               <span className="text-2xl">🛡️</span>
               <p style={{ color: "var(--color-cream)" }}>
-                <strong>Morgan isn't paid to sell you a mutual fund, an insurance policy, or anything else.</strong> There is no commission. On your call, his only job is to tell you the truth about your situation.
+                <strong>I'm not paid to sell you a mutual fund, an insurance policy, or anything else.</strong> There is no commission. On our call, my only job is to tell you the truth about your situation.
               </p>
             </div>
           </div>
