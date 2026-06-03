@@ -150,7 +150,7 @@ function Trap() {
         <div className="space-y-5 text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
           <p>The playbook you were handed (max the RRSP, buy the mutual fund, "talk to your guy at the bank") was built to <strong style={{ color: "var(--color-cream)" }}>park</strong> your money, not grow it.</p>
           <p>You're not behind because you're careless. You're behind because no one with an actual incentive ever sat down and showed someone in your situation what to do next.</p>
-          <p className="font-semibold" style={{ color: "var(--color-cream)" }}>That's the entire reason Morgan does these calls.</p>
+          <p className="font-semibold" style={{ color: "var(--color-cream)" }}>That's the entire reason I do these calls.</p>
         </div>
       </div>
     </section>
