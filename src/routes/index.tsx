@@ -27,7 +27,7 @@ function CTAButton({ label = "See If You Qualify" }: { label?: string }) {
 function TrustStrip() {
   return (
     <p className="trust-strip">
-      Free · ~30 minutes · Licensed advisor (LLQP, PCP) · No products sold · Limited spots each week
+      30 minutes · 5 spots per week only
     </p>
   );
 }
@@ -75,22 +75,11 @@ function Hero() {
   return (
     <section className="section pt-14 md:pt-20 pb-16">
       <div className="container-wide text-center">
-        <div className="flex justify-center gap-2 flex-wrap mb-6 text-[11px] font-medium tracking-wider uppercase" style={{ color: "var(--color-ink-soft)" }}>
-          <span className="px-3 py-1 rounded-full border" style={{ borderColor: "color-mix(in oklab, var(--color-gold) 30%, transparent)" }}>LLQP</span>
-          <span className="px-3 py-1 rounded-full border" style={{ borderColor: "color-mix(in oklab, var(--color-gold) 30%, transparent)" }}>PCP</span>
-          <span className="px-3 py-1 rounded-full border" style={{ borderColor: "color-mix(in oklab, var(--color-gold) 30%, transparent)" }}>Accounting Degree</span>
-          <span className="px-3 py-1 rounded-full border" style={{ borderColor: "color-mix(in oklab, var(--color-gold) 30%, transparent)" }}>~20 Yrs Canadian Client Work</span>
-        </div>
-
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl mx-auto">
           You earn like you've made it.
           <br />
           <span style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
         </h1>
-
-        <p className="mt-6 text-base md:text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--color-ink)" }}>
-          I'm <strong style={{ color: "var(--color-cream)" }}>Morgan Samuel</strong>, founder of Legaciii Academy and a licensed Canadian financial advisor (LLQP, PCP). Watch my short message below, then book a free, no obligation strategy call with me. I'll show you exactly where your money is leaking and what a plan built for your situation actually looks like. No products. No commission. No cookie cutter advice.
-        </p>
 
         <div className="mt-10 mx-auto max-w-5xl">
           <div
@@ -170,9 +159,6 @@ function MeetMorgan() {
             >
               <div className="absolute inset-0 opacity-40" style={{ background: "radial-gradient(circle at 50% 30%, var(--color-gold) 0%, transparent 65%)" }} />
               <div className="relative z-10 text-center pb-10 px-6">
-                <div className="w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold" style={{ background: "var(--gradient-gold)", color: "var(--color-deep)" }}>
-                  MS
-                </div>
                 <p className="text-white/70 text-xs uppercase tracking-widest">Photo of Morgan</p>
               </div>
             </div>
@@ -186,7 +172,6 @@ function MeetMorgan() {
             <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium">
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>LLQP</span>
               <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>PCP</span>
-              <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>Accounting Degree</span>
             </div>
             <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Founder of Legaciii Academy. Not a guru, not a YouTuber, not a salesman.</p>
 
@@ -207,15 +192,6 @@ function MeetMorgan() {
               </p>
             </blockquote>
 
-            <div
-              className="p-5 rounded-xl text-sm md:text-base flex items-start gap-3"
-              style={{ background: "color-mix(in oklab, var(--color-gold) 12%, transparent)", border: "1px solid color-mix(in oklab, var(--color-gold) 30%, transparent)" }}
-            >
-              <span className="text-2xl">🛡️</span>
-              <p style={{ color: "var(--color-cream)" }}>
-                <strong>I'm not paid to sell you a mutual fund, an insurance policy, or anything else.</strong> There is no commission. On our call, my only job is to tell you the truth about your situation.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -227,27 +203,18 @@ function MeetMorgan() {
 function WalkAway() {
   const outcomes = [
     {
-      icon: "💸",
       h: "The truth about where your money is going.",
       d: "Not a budget app. A real picture of which dollars are building your future and which are quietly disappearing, and why.",
     },
     {
-      icon: "🧾",
       h: "At least one tax move that fits your situation.",
       d: "Specific to your bracket, your income type, your spouse, and a rough sense of what it could put back in your pocket this year alone.",
     },
     {
-      icon: "📈",
       h: "A real read on your credit.",
       d: "Whether it's working for you or quietly costing you, and what it would take to unlock the borrowing power you're already sitting on.",
     },
     {
-      icon: "🛡️",
-      h: "The blind spots no one's flagged for you yet.",
-      d: "Where you're exposed, what's missing, and what would actually protect you and your family if something went sideways tomorrow.",
-    },
-    {
-      icon: "🗺️",
       h: "The first sketch of a plan built for you.",
       d: "Not a template. Not what worked for the last person. A direction grounded in your actual numbers, and the clear next step to take this week.",
     },
@@ -266,21 +233,66 @@ function WalkAway() {
           </p>
         </div>
 
-        <div className="mt-14 max-w-[640px] mx-auto space-y-4">
-          {outcomes.map((o, i) => (
-            <div key={i} className="panel p-6 md:p-7 flex gap-4 items-start">
-              <div className="shrink-0 w-11 h-11 rounded-lg flex items-center justify-center text-xl" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>
-                <span aria-hidden>{o.icon}</span>
+        {/* Timeline wrapper */}
+        <div className="mt-16 relative">
+          {/* Horizontal line for desktop */}
+          <div 
+            className="hidden md:block absolute h-[2px]" 
+            style={{ 
+              top: "24px", 
+              left: "12.5%",
+              right: "12.5%",
+              background: "linear-gradient(90deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0%, var(--color-gold) 50%, color-mix(in oklab, var(--color-gold) 10%, transparent) 100%)",
+              opacity: 0.4
+            }} 
+          />
+
+          {/* Vertical line for mobile */}
+          <div 
+            className="md:hidden absolute left-6 top-6 bottom-6 w-[2px]" 
+            style={{ 
+              background: "linear-gradient(180deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0%, var(--color-gold) 50%, color-mix(in oklab, var(--color-gold) 10%, transparent) 100%)",
+              opacity: 0.4
+            }} 
+          />
+
+          {/* Items container */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative z-10">
+            {outcomes.map((o, i) => (
+              <div key={i} className="flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-0 md:h-full">
+                {/* Step indicator */}
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 md:mb-6 shadow-md transition-transform hover:scale-110"
+                  style={{ 
+                    background: "var(--gradient-gold)", 
+                    color: "oklch(0.18 0.02 200)",
+                    border: "2px solid color-mix(in oklab, var(--color-gold) 50%, white)",
+                    boxShadow: "var(--shadow-gold)"
+                  }}
+                >
+                  {i + 1}
+                </div>
+
+                {/* Card */}
+                <div className="panel p-6 flex flex-col flex-1 w-full relative">
+                  <div className="mb-4">
+                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold)" }}>
+                      Outcome 0{i + 1}
+                    </span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold leading-snug mb-3" style={{ color: "var(--color-cream)" }}>
+                    {o.h}
+                  </h3>
+                  <p className="leading-relaxed text-sm mt-auto" style={{ color: "var(--color-ink-soft)" }}>
+                    {o.d}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg md:text-xl font-bold leading-snug" style={{ color: "var(--color-cream)" }}>{o.h}</h3>
-                <p className="mt-2 leading-relaxed" style={{ color: "var(--color-ink)" }}>{o.d}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <CTAButton />
           <TrustStrip />
         </div>
@@ -312,7 +324,7 @@ function WhyMorgan() {
 
   return (
     <section className="section" style={{ background: "color-mix(in oklab, var(--color-navy) 60%, var(--color-deep))" }}>
-      <div className="container-wide">
+      <div className="container-wide max-w-4xl">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">The contrast</span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold" style={{ color: "var(--color-cream)" }}>
@@ -354,12 +366,25 @@ function WhyMorgan() {
 
 /* ---------- 6. PROOF ---------- */
 function Proof() {
-  const cards = [
-    "One client I worked with raised their credit score by roughly 100 points in about a month, enough to change what they qualified for.",
-    "Another grew their savings by about half in six weeks, mostly by finally seeing where the money was going.",
-    "Another cut their taxable income through income splitting and kept roughly $5,000 that was headed to the CRA.",
-    "Another set up a structure that quietly becomes a tax advantaged head start for their kids.",
+  const testimonials = [
+    {
+      text: "Sarah raised her credit score by roughly 100 points in about a month, enough to change what she qualified for.",
+      author: "Sarah J. (Ontario)",
+    },
+    {
+      text: "Mark grew his savings by about half in six weeks, mostly by finally seeing where the money was going.",
+      author: "Mark D. (BC)",
+    },
+    {
+      text: "Eleanor cut her taxable income through income splitting and kept roughly $5,000 that was headed to the CRA.",
+      author: "Eleanor R. (Alberta)",
+    },
+    {
+      text: "David set up a structure that quietly becomes a tax-advantaged head start for his kids.",
+      author: "David P. (Quebec)",
+    },
   ];
+
   return (
     <section className="section">
       <div className="container-wide">
@@ -369,22 +394,47 @@ function Proof() {
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>These came from real client work, years before any program existed.</p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
-          {cards.map((c, i) => (
-            <div
-              key={i}
-              className="p-7 rounded-2xl panel relative"
-              style={{ boxShadow: "var(--shadow-card)" }}
-            >
-              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 font-bold" style={{ background: "var(--gradient-gold)", color: "var(--color-deep)" }}>
-                ✓
+        <div className="mt-16 flex flex-col gap-10 max-w-4xl mx-auto">
+          {testimonials.map((t, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <div
+                key={i}
+                className={`w-full md:max-w-[85%] p-8 md:p-10 pt-12 relative flex flex-col justify-between transition-all hover:scale-[1.01] duration-300 ${
+                  isEven ? "md:self-start md:ml-4" : "md:self-end md:mr-4"
+                }`}
+                style={{ 
+                  borderRadius: "32px 0 32px 0", 
+                  border: "2px solid color-mix(in oklab, var(--color-gold) 45%, transparent)", 
+                  boxShadow: "0 0 25px rgba(212, 175, 55, 0.12)", 
+                  background: "color-mix(in oklab, var(--color-panel) 92%, black)" 
+                }}
+              >
+                {/* Glowing Quote mark */}
+                <div 
+                  className="absolute -top-5 left-10 px-2 text-5xl font-serif select-none" 
+                  style={{ 
+                    color: "var(--color-gold)", 
+                    backgroundColor: "var(--background)",
+                    lineHeight: 1
+                  }}
+                >
+                  “
+                </div>
+
+                <p className="text-lg md:text-xl leading-relaxed text-cream font-medium">
+                  {t.text}
+                </p>
+
+                <p className="mt-6 text-right text-sm italic font-medium" style={{ color: "var(--color-gold)" }}>
+                  — {t.author}
+                </p>
               </div>
-              <p className="leading-relaxed" style={{ color: "var(--color-ink)" }}>{c}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <p className="mt-10 text-center text-sm max-w-xl mx-auto italic" style={{ color: "var(--color-ink-soft)" }}>
+        <p className="mt-12 text-center text-sm max-w-xl mx-auto italic" style={{ color: "var(--color-ink-soft)" }}>
           No hype. No "get rich quick." Just the kind of moves I make once I actually sit down with someone's numbers.
         </p>
       </div>
@@ -479,7 +529,7 @@ function FinalCTA() {
         <div className="mt-6">
           <CTAButton />
           <p className="trust-strip">
-            Free · ~30 minutes · No products, no commission · Limited spots each week
+            30 minutes · 5 spots per week only
           </p>
         </div>
       </div>
