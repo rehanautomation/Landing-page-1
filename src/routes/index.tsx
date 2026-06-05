@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "../../LP images/leagciii-logo.webp";
 import morganMain from "../../LP images/Morgan-main.JPG";
 
@@ -90,9 +90,10 @@ function Landing() {
     <main id="top" className="text-foreground" style={{ backgroundColor: "#000421" }}>
       <Header />
       <Hero />
+      <ResultsPanel />
       <Trap />
       <MeetMorgan />
-      <WalkAway />
+      <LegaciiiChallenge />
       <WhyMorgan />
       <Proof />
       <IsThisForYou />
@@ -106,6 +107,110 @@ function Landing() {
 }
 
 /* ---------- 1. HERO ---------- */
+function AnimatedCounter({ 
+  value, 
+  prefix = "", 
+  suffix = "", 
+  duration = 2000, 
+  decimals = 0 
+}: { 
+  value: number; 
+  prefix?: string; 
+  suffix?: string; 
+  duration?: number;
+  decimals?: number;
+}) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    const endValue = value;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      // easeOutExpo
+      const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      
+      setCount(endValue * easeOut);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(endValue);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, value, duration]);
+
+  const formattedCount = decimals > 0 
+    ? count.toFixed(decimals) 
+    : Math.floor(count).toLocaleString();
+
+  return (
+    <div ref={ref} className="inline-block">
+      {prefix}{formattedCount}{suffix}
+    </div>
+  );
+}
+
+function ResultsPanel() {
+  const stats = [
+    { label: "Average Net Worth Increase", value: 32, suffix: "%" },
+    { label: "Families Transformed", value: 738, suffix: "+" },
+    { label: "Tax Savings", value: 5239800, prefix: "$", suffix: "+" },
+  ];
+
+  return (
+    <div className="container-wide px-5 mt-8 relative z-20">
+      <div 
+        className="flex flex-col items-center p-8 md:p-12 rounded-3xl"
+        style={{ 
+          background: "color-mix(in oklab, var(--color-navy) 80%, black)",
+          border: "1px solid color-mix(in oklab, var(--color-gold) 20%, transparent)",
+          boxShadow: "0 20px 50px -15px rgba(0,0,0,0.5)"
+        }}
+      >
+        <span className="eyebrow mb-8 text-center" style={{ color: "var(--color-cream)" }}>The numbers behind the system</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+          {stats.map((s, i) => (
+            <div key={i} className="text-center space-y-2">
+              <div className="text-4xl md:text-5xl font-bold" style={{ color: "var(--color-gold)" }}>
+                <AnimatedCounter value={s.value} prefix={s.prefix} suffix={s.suffix} />
+              </div>
+              <div className="text-sm uppercase tracking-widest font-medium" style={{ color: "var(--color-ink-soft)" }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section className="section pt-14 md:pt-20 pb-16 relative overflow-hidden">
@@ -128,7 +233,7 @@ function Hero() {
         </h1>
 
         <p className="mt-8 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
-          There's a specific reason high earners in Canada stay behind. It's not what you've been told.
+          In 5 minutes, you are about to learn the real reason your income never turns into wealth, and a system that finally changes that.
         </p>
 
         <div className="mt-10 mx-auto max-w-5xl">
@@ -180,15 +285,10 @@ function Trap() {
           <p className="text-2xl md:text-4xl font-semibold leading-snug" style={{ color: "var(--color-cream)" }}>
             It was never an income problem.
           </p>
-          <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
-            The discipline that worked when you had nothing quietly stopped working the moment your income climbed, and no one ever replaced it with a system.
-          </p>
         </blockquote>
 
         <div className="space-y-5 text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
-          <p>The playbook you were handed (max the RRSP, buy the mutual fund, "talk to your guy at the bank") was built to <strong style={{ color: "var(--color-cream)" }}>park</strong> your money, not grow it.</p>
-          <p>You're not behind because you're careless. You're behind because no one with an actual incentive ever sat down and showed someone in your situation what to do next.</p>
-          <p className="font-semibold" style={{ color: "var(--color-cream)" }}>That's the entire reason I do these calls.</p>
+          <p>More income just handed you more to lose track of. Not because you're careless, but because no one ever built you a system to turn it into wealth. That gap is the only thing standing between your income and your net worth.</p>
         </div>
       </div>
     </section>
@@ -199,8 +299,8 @@ function Trap() {
 function MeetMorgan() {
   return (
     <section className="section" style={{ background: "color-mix(in oklab, var(--color-navy) 50%, var(--color-deep))" }}>
-      <div className="container-wide">
-        <div className="grid md:grid-cols-[5fr_7fr] gap-12 items-start">
+      <div className="container-wide px-5">
+        <div className="grid md:grid-cols-[5fr_7fr] gap-12 lg:gap-20 items-start">
           <div className="md:sticky md:top-24">
             <div
               className="aspect-[4/5] rounded-2xl overflow-hidden relative"
@@ -215,33 +315,28 @@ function MeetMorgan() {
           </div>
 
           <div>
-            <span className="eyebrow">My Story</span>
+            <span className="eyebrow">Why listen to me</span>
             <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-              Hi, I'm Morgan.
+              I'm not an internet personality with a theory.
             </h2>
-            <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium">
-              <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>licensed financial advisor</span>
-              <span className="px-3 py-1 rounded-full" style={{ background: "color-mix(in oklab, var(--color-gold) 18%, transparent)", color: "var(--color-cream)", border: "1px solid color-mix(in oklab, var(--color-gold) 35%, transparent)" }}>20 years</span>
-            </div>
-            <p className="mt-3 text-sm" style={{ color: "var(--color-ink-soft)" }}>Founder of Legaciii Academy.</p>
+            <p className="mt-3 text-sm font-medium" style={{ color: "var(--color-ink-soft)" }}>
+              Morgan Samuel · Founder of Legaciii Academy · Licensed advisor (LLQP, PCP)
+            </p>
 
-            <div className="mt-8 space-y-5 text-base md:text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
-              <p>I've spent nearly two decades across banking, payroll, corporate accounting, insurance, and investments, on both sides of the Canada/US border, sitting across from hundreds of real Canadians solving real money problems.</p>
-              <p>I didn't start ahead. Years ago, earning well above average, I was still burning through thousands a month with no system and no idea where it went. Then a property came up at fire sale pricing (the kind of opportunity that doesn't come twice) and I couldn't take it. I didn't have the cash. <em>At my income, I should have.</em></p>
-              <p>That was the day I decided to learn the system from the inside out.</p>
-              <p>Everything I do now, including Legaciii Academy, came out of that.</p>
-            </div>
-
-            <blockquote
-              className="my-10 p-8 rounded-2xl relative panel"
-              style={{ borderLeft: "4px solid var(--color-gold)" }}
-            >
-              <span className="absolute -top-4 -left-2 text-7xl leading-none font-serif" style={{ color: "var(--color-gold)" }}>"</span>
-              <p className="text-lg md:text-xl leading-relaxed relative" style={{ color: "var(--color-cream)" }}>
-                Most advisors aren't creative. They run the same RRSP and mutual fund playbook on everyone and call it a plan. But a 35 year old family in Toronto and a 28 year old founder in Calgary don't have the same situation, so why would they get the same advice? Sometimes the right move is reducing your income, not raising it. Sometimes the right insurance isn't insurance at all. <strong>I don't do cookie cutter. I do custom.</strong>
+            <div className="mt-12 pt-8 border-t border-gold/10 text-lg leading-relaxed text-ink-soft space-y-6">
+              <p>
+                I'm a licensed Canadian financial advisor, and for nearly twenty years I've sat across from hundreds of high earners in the exact spot you're in now: a great income, and not enough to show for it.
               </p>
-            </blockquote>
+              <p>
+                Everything inside the Legaciii Challenge is the work I've already done with real Canadians and real money, organized into a system you can follow one month at a time. It's built for the Canadian tax code and the way Canadian families actually live, not a generic playbook borrowed from somewhere else.
+              </p>
+            </div>
 
+            <div className="mt-12 pt-8 border-t border-gold/10">
+              <p className="text-2xl md:text-3xl font-semibold leading-tight text-gold italic">
+                I've never met a high earner who couldn't build real wealth. Only ones who were never handed the system to do it.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -249,49 +344,52 @@ function MeetMorgan() {
   );
 }
 
-/* ---------- 4. WHAT YOU WALK AWAY WITH ---------- */
-function WalkAway() {
-  const outcomes = [
+/* ---------- 4. THE LEGACIII CHALLENGE ---------- */
+function LegaciiiChallenge() {
+  const steps = [
     {
-      h: "The truth about where your money is going.",
-      d: "Not a budget app. A real picture of which dollars are building your future and which are quietly disappearing, and why.",
+      h: "01 — Find where it's leaking.",
+      d: "We start with why your money disappears and give every dollar a job. Inside the first month, you finally see where every dollar goes.",
     },
     {
-      h: "At least one tax move that fits your situation.",
-      d: "Specific to your bracket, your income type, your spouse, and a rough sense of what it could put back in your pocket this year alone.",
+      h: "02 — Make your credit work for you.",
+      d: "We turn your credit from something quietly costing you into real borrowing power you can use.",
     },
     {
-      h: "A real read on your credit.",
-      d: "Whether it's working for you or quietly costing you, and what it would take to unlock the borrowing power you're already sitting on.",
+      h: "03 — Protect what you've built.",
+      d: "We put protection in place so one bad event can't wipe out everything you've worked for.",
     },
     {
-      h: "The first sketch of a plan built for you.",
-      d: "Not a template. Not what worked for the last person. A direction grounded in your actual numbers, and the clear next step to take this week.",
+      h: "04 — Stop overpaying the CRA.",
+      d: "We go after the tax bill that's been bleeding you for years, with strategies built for the Canadian tax code.",
+    },
+    {
+      h: "05 — Build wealth that outlasts you.",
+      d: "We put your money into real investments, with a roadmap that keeps growing after you and passes to your kids.",
     },
   ];
 
   return (
     <section className="section">
       <div className="container-wide">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow">What you walk away with</span>
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="eyebrow">The system</span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            In 30 minutes, you'll have answers to questions you've been carrying for years.
+            The Legaciii Challenge: the system that turns income into wealth.
           </h2>
-          <p className="mt-5 text-lg" style={{ color: "var(--color-ink)" }}>
-            Here's what you walk away with, whether or not we ever speak again.
+          <p className="mt-5 text-lg md:text-xl" style={{ color: "var(--color-ink)" }}>
+            It's not theory, and it's not another course. It's the exact path that already worked for hundreds of Canadians, laid out step by step, built around the Canadian tax code. One month at a time, with a coach beside you the whole way.
           </p>
         </div>
 
-        {/* Timeline wrapper */}
         <div className="mt-16 relative">
           {/* Horizontal line for desktop */}
           <div 
             className="hidden md:block absolute h-[2px]" 
             style={{ 
               top: "24px", 
-              left: "12.5%",
-              right: "12.5%",
+              left: "10%",
+              right: "10%",
               background: "linear-gradient(90deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0%, var(--color-gold) 50%, color-mix(in oklab, var(--color-gold) 10%, transparent) 100%)",
               opacity: 0.4
             }} 
@@ -307,8 +405,8 @@ function WalkAway() {
           />
 
           {/* Items container */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative z-10">
-            {outcomes.map((o, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 relative z-10">
+            {steps.map((s, i) => (
               <div key={i} className="flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-0 md:h-full">
                 {/* Step indicator */}
                 <div 
@@ -324,17 +422,17 @@ function WalkAway() {
                 </div>
 
                 {/* Card */}
-                <div className="panel p-6 flex flex-col flex-1 w-full relative">
+                <div className="panel p-6 flex flex-col flex-1 w-full h-full relative transition-transform hover:scale-[1.02] duration-300">
                   <div className="mb-4">
-                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold)" }}>
-                      Outcome 0{i + 1}
+                    <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold)" }}>
+                      Step 0{i + 1}
                     </span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold leading-snug mb-3" style={{ color: "var(--color-cream)" }}>
-                    {o.h}
+                  <h3 className="text-lg font-bold leading-snug mb-3" style={{ color: "var(--color-cream)" }}>
+                    {s.h.replace(/^\d{2} — /, '')}
                   </h3>
-                  <p className="leading-relaxed text-sm mt-auto" style={{ color: "var(--color-ink-soft)" }}>
-                    {o.d}
+                  <p className="leading-relaxed text-sm" style={{ color: "var(--color-ink-soft)" }}>
+                    {s.d}
                   </p>
                 </div>
               </div>
@@ -342,7 +440,10 @@ function WalkAway() {
           </div>
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl italic mb-10" style={{ color: "var(--color-cream)" }}>
+            Other programs hand you a folder and wish you luck. Here, a coach makes sure every step actually gets done, every week, until it's finished.
+          </p>
           <CTAButton />
           <TrustStrip />
         </div>
@@ -364,11 +465,11 @@ function WhyMorgan() {
     },
     {
       tried: "A \"money coach.\" A slick course and a made-up title that turned into a sales pitch the moment you trusted it.",
-      morgan: "You always know exactly what I'm telling you and why. No hidden agenda.",
+      morgan: "You always know exactly what you're doing and why. No hidden agenda.",
     },
     {
       tried: "A one-time financial plan. A thick PDF, a big invoice, and silence the second you actually needed help.",
-      morgan: "Someone still in your corner when it's time to actually do it.",
+      morgan: "A coach in your corner every week, until it's actually done.",
     },
   ];
 
@@ -380,13 +481,15 @@ function WhyMorgan() {
           <h2 className="mt-3 text-3xl md:text-5xl font-bold" style={{ color: "var(--color-cream)" }}>
             You've probably tried some version of this before.
           </h2>
-          <p className="mt-4 text-lg" style={{ color: "var(--color-ink-soft)" }}>Here's why it didn't move the needle.</p>
+          <p className="mt-4 text-lg" style={{ color: "var(--color-ink-soft)" }}>
+            Here's why none of it worked. You were never short on information, it's everywhere, for free. You were short on a system, and someone to make sure you used it.
+          </p>
         </div>
 
         <div className="mt-14 space-y-4">
           <div className="hidden md:grid md:grid-cols-2 gap-4 px-2 text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--color-ink-soft)" }}>
             <div>What you've tried</div>
-            <div style={{ color: "var(--color-gold)" }}>With me</div>
+            <div style={{ color: "var(--color-gold)" }}>With the Legaciii Challenge</div>
           </div>
           {rows.map((r, i) => (
             <div key={i} className="grid md:grid-cols-2 gap-4">
@@ -440,8 +543,8 @@ function Proof() {
       <div className="container-wide">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Real client work</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold">I've been doing this long before it had a name.</h2>
-          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>These came from real client work, years before any program existed.</p>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold">This is what happens when someone finally has a system.</h2>
+          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>Real Canadians. Real numbers. Years before any of this was a program.</p>
         </div>
 
         <div className="mt-16 flex flex-col gap-10 max-w-4xl mx-auto">
@@ -569,11 +672,11 @@ function FinalCTA() {
           The tax you didn't plan for is already gone. The borrowing power you never built cost you the deal. The income that got absorbed this month compounds into nothing.
         </p>
         <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-cream)" }}>
-          You can keep earning well and hoping it sorts itself out, <strong>or</strong> you can spend 30 minutes with me and find out exactly where you stand.
+          Book a free strategy session. We'll pinpoint where your money's leaking and whether the Challenge is the right fit for you. If it is, you'll see exactly what working together looks like. If it isn't, you'll walk away with direction anyway.
         </p>
 
-        <p className="mt-10 text-sm uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
-          I'm taking a limited number of calls this week.
+        <p className="mt-10 text-sm uppercase tracking-widest font-semibold" style={{ color: "var(--color-gold)" }}>
+          We only take five of these a week, because the work is hands-on.
         </p>
 
         <div className="mt-6">
@@ -592,19 +695,23 @@ function FAQ() {
   const items = [
     { 
       q: "Why is this free? What's the catch?", 
-      a: "No catch. The fastest way to show you I'm different from everyone who's let you down is to be useful first. Some people I talk to want to keep working together after. Most don't, and that's fine. You walk away with real direction either way." 
+      a: "No catch. The fastest way to show you I'm different from everyone who's let you down is to be useful first. On the call we find where your money's leaking and decide together if the Legaciii Challenge fits. Some people move forward. Most don't, and that's fine. You walk away with real direction either way." 
     },
     { 
-      q: "What will i get out of this?", 
-      a: "You'll get a straight read on your real situation: where your money's going, what you're leaving on the table, and what to do next. Specific to you, not the generic stuff you've already heard." 
+      q: "Is the Legaciii Challenge a paid program?", 
+      a: "The strategy session is completely free. The Legaciii Challenge itself is a paid program, but we only get into what that looks like if we both agree it's the right fit. No pressure, no surprise pitch." 
     },
     { 
       q: "I've already read all the advice and tried a few things. What's different here?", 
-      a: "The problem was never information. It's that nobody's looked at your actual numbers and told you the actual moves that fit your income, your taxes, and your goals. Free advice is written for the average person. You're not average." 
+      a: "The problem was never information. It's that nobody's looked at your actual numbers, built you a system that fits your income, your taxes, and your goals, then made sure you actually used it. Free advice is written for the average person. You're not average." 
+    },
+    { 
+      q: "I don't have much free time. How much work is this?", 
+      a: "It's hands-on, but built for busy people. One focused piece each month, and a coach who keeps you moving every week so it never stalls in your inbox like everything else has." 
     },
     { 
       q: "How do I know this isn't another program that overpromises?", 
-      a: "Because I'm not promising you anything on this call except 30 honest minutes. I've done this for real Canadians for 20 years, not sold a dream. Get on, see if what I tell you is worth something, and decide for yourself." 
+      a: "Because I'm not promising you anything on the call except 30 honest minutes. I've done this for real Canadians for 20 years, with my license on the line, not sold a dream. Get on, see if what I tell you is worth something, and decide for yourself." 
     },
   ];
   const [open, setOpen] = useState<number | null>(0);
