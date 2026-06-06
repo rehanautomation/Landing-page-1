@@ -27,7 +27,7 @@ function CTAButton({ label = "See If You Qualify" }: { label?: string }) {
 function TrustStrip() {
   return (
     <p className="trust-strip">
-      30 minutes · 5 spots per week only
+      15 minutes · 5 sessions
     </p>
   );
 }
@@ -227,9 +227,7 @@ function Hero() {
       <div className="container-wide text-center relative z-10">
         <span className="eyebrow mb-6">Licensed advisor. 20 years. Hundreds of Canadians to real wealth.</span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl mx-auto">
-          You earn like you've made it.
-          <br />
-          <span style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
+          The system behind <span style={{ color: "var(--color-gold)" }}>hundreds of high earners' wealth</span>
         </h1>
 
         <p className="mt-8 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
@@ -334,7 +332,7 @@ function MeetMorgan() {
 
             <div className="mt-12 pt-8 border-t border-gold/10">
               <p className="text-2xl md:text-3xl font-semibold leading-tight text-gold italic">
-                I've never met a high earner who couldn't build real wealth. Only ones who were never handed the system to do it.
+                I've never met a high earner Who couldn't become a millionaire. Only ones who were never handed the system to do it.
               </p>
             </div>
           </div>
@@ -423,34 +421,87 @@ function LegaciiiChallenge() {
           </div>
         </div>
 
-        {/* Support Band */}
-        <div className="mt-12 p-8 md:p-12 rounded-3xl relative overflow-hidden" style={{ background: "color-mix(in oklab, var(--color-gold) 5%, var(--color-navy))" }}>
-          <div className="absolute inset-0 opacity-10" style={{ background: "radial-gradient(circle at 50% 50%, var(--color-gold) 0%, transparent 70%)" }} />
-          
-          <div className="relative z-10 text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-cream)" }}>You don't do any of it alone.</h3>
+        {/* Your Support System */}
+        <div className="mt-24 space-y-4">
+          <div className="text-center max-w-[600px] mx-auto mb-12">
+            <span className="eyebrow" style={{ color: "var(--color-gold)" }}>YOUR SUPPORT SYSTEM</span>
+            <h2 className="mt-4 text-3xl md:text-5xl font-bold text-white">You don't do any of it alone.</h2>
+            <p className="mt-4 text-lg" style={{ color: "#9aa9bd" }}>
+              The system is the roadmap. These are the people who get you to the destination.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            <div className="space-y-3">
-              <p className="font-bold text-gold">A dedicated coach.</p>
-              <p className="text-sm text-ink-soft">Every step, every week, until it's actually done.</p>
+          {/* Block 1: Two cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Card A: Coach */}
+            <div className="group p-6 md:p-8 rounded-[16px] transition-all duration-200 hover:-translate-y-[3px] border" 
+                 style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)" }}>
+              <style dangerouslySetInnerHTML={{ __html: `
+                .group:hover { border-color: #e9223b !important; }
+                /* Using a slightly more vibrant orange for hover to match intent */
+                .group:hover { border-color: var(--color-gold) !important; }
+              `}} />
+              <div className="w-[44px] h-[44px] md:w-[46px] md:h-[46px] rounded-lg flex items-center justify-center mb-6" style={{ background: "rgba(233,162,59,0.12)", color: "#f0ad4e" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19.07 4.93a10 10 0 0 0-14.14 0M15.54 8.46a5 10 0 0 0-7.08 0"/><rect x="2" y="13" width="4" height="7" rx="2"/><rect x="18" y="13" width="4" height="7" rx="2"/><path d="M12 2v2"/><path d="M12 11v3"/><path d="M12 18v3"/></svg>
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2">A dedicated coach</h4>
+              <p className="text-sm leading-relaxed" style={{ color: "#9aa9bd" }}>
+                Your direct line, every week, until the work is done — never figuring it out alone.
+              </p>
             </div>
-            <div className="space-y-3">
-              <p className="font-bold text-gold">A full team of vetted specialists, included.</p>
-              <p className="text-sm text-ink-soft mb-4">You never have to find, vet, or second-guess any of them.</p>
-              <div className="flex flex-wrap gap-2">
-                {["Estate lawyer", "Mortgage broker", "Tax specialist", "Insurance expert", "Licensed trustee", "Real estate expert"].map((role) => (
-                  <span key={role} className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-gold/10 text-gold/80 border border-gold/20">
-                    {role}
-                  </span>
-                ))}
+
+            {/* Card B: Community */}
+            <div className="group p-6 md:p-8 rounded-[16px] transition-all duration-200 hover:-translate-y-[3px] border" 
+                 style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)" }}>
+              <div className="w-[44px] h-[44px] md:w-[46px] md:h-[46px] rounded-lg flex items-center justify-center mb-6" style={{ background: "rgba(233,162,59,0.12)", color: "#f0ad4e" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2">A private community</h4>
+              <p className="text-sm leading-relaxed" style={{ color: "#9aa9bd" }}>
+                A room of peers doing the same work, sharing what's working right now.
+              </p>
+            </div>
+          </div>
+
+          {/* Block 2: Expert Network */}
+          <div className="group p-6 md:p-10 rounded-[16px] transition-all duration-200 hover:-translate-y-[3px] border" 
+               style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(233,162,59,0.24)" }}>
+            <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
+              <div className="w-[44px] h-[44px] md:w-[46px] md:h-[46px] rounded-lg flex items-center justify-center shrink-0" style={{ background: "rgba(233,162,59,0.12)", color: "#f0ad4e" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white">An expert network</h4>
+                <p className="text-sm" style={{ color: "#9aa9bd" }}>A full bench of vetted specialists, ready to execute your plan — included.</p>
               </div>
             </div>
-            <div className="space-y-3">
-              <p className="font-bold text-gold">A private room of people like you.</p>
-              <p className="text-sm text-ink-soft">High earners doing the same work, so you're never figuring it out in isolation.</p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-[10px]">
+              {[
+                "Estate Lawyer", "Mortgage Broker", "Tax Specialist", 
+                "Insurance Expert", "Licensed Trustee", "Real Estate Expert"
+              ].map((role) => (
+                <div key={role} className="flex items-center gap-3 px-[13px] py-[11px] rounded-[9px] border" 
+                     style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.07)" }}>
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#e9a23b" }} />
+                  <span className="text-[11px] md:text-xs font-bold uppercase tracking-wider text-white/90">{role}</span>
+                </div>
+              ))}
             </div>
+          </div>
+
+          {/* Block 3: Testimonial Bar */}
+          <div className="p-6 md:p-8 rounded-[16px] border flex flex-col md:flex-row items-center gap-6" 
+               style={{ background: "rgba(233,162,59,0.06)", borderColor: "rgba(233,162,59,0.22)" }}>
+            <div className="shrink-0 text-gold opacity-40">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2.01697 21L2.01697 18C2.01697 16.8954 2.9124 16 4.01697 16H7.01697C7.56925 16 8.01697 15.5523 8.01697 15V9C8.01697 8.44772 7.56925 8 7.01697 8H4.01697C3.46468 8 3.01697 8.44772 3.01697 9V12C3.01697 12.5523 2.56925 13 2.01697 13H0.0169678V5H10.017V15C10.017 18.3137 7.33066 21 4.01697 21H2.01697Z"/></svg>
+            </div>
+            <p className="text-lg italic leading-relaxed text-cream flex-1 text-center md:text-left">
+              "The network alone saved me months of vetting. It's like having a family office for the first time."
+            </p>
+            <p className="text-sm font-bold uppercase tracking-widest text-gold shrink-0 md:ml-auto">
+              — Verified Client
+            </p>
           </div>
         </div>
 
@@ -483,7 +534,7 @@ function WhyMorgan() {
     },
     {
       tried: "A one-time financial plan. A thick PDF, a big invoice, and silence the second you actually needed help.",
-      morgan: "A coach in your corner every week, until it's actually done.",
+      morgan: "A coach in your corner every month, until it's actually done.",
     },
   ];
 
@@ -496,7 +547,7 @@ function WhyMorgan() {
             You've probably tried some version of this before.
           </h2>
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink-soft)" }}>
-            Here's why none of it worked. You were never short on information, it's everywhere, for free. You were short on a system, and someone to make sure you used it.
+            Here's why none of it worked. You were never short on information, it's everywhere, for free. You were short on a system, and someone to insure you use it.
           </p>
         </div>
 
@@ -602,7 +653,7 @@ function Proof() {
         </div>
 
         <p className="mt-12 text-center text-sm max-w-xl mx-auto italic" style={{ color: "var(--color-ink-soft)" }}>
-          No hype. No "get rich quick." Just the kind of moves I make once I actually sit down with someone's numbers.
+          No hype. No "get rich quick."
         </p>
       </div>
     </section>
@@ -630,7 +681,7 @@ function IsThisForYou() {
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">BEFORE YOU BOOK</span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold">This call isn't for everyone.</h2>
-          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>I only take a handful a week. Here's who they're for.</p>
+          <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>We only take a handful a week. Here's who they're for.</p>
         </div>
 
         <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -686,7 +737,7 @@ function FinalCTA() {
           The tax you didn't plan for is already gone. The borrowing power you never built cost you the deal. The income that got absorbed this month compounds into nothing.
         </p>
         <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-cream)" }}>
-          Book a free strategy session. We'll pinpoint where your money's leaking and whether the Challenge is the right fit for you. If it is, you'll see exactly what working together looks like. If it isn't, you'll walk away with direction anyway.
+          Book a discovery session. We'll pinpoint where your money's leaking and whether the Challenge is the right fit for you. If it is, you'll see exactly what working together looks like. If it isn't, you'll walk away with direction anyway.
         </p>
 
         <p className="mt-10 text-sm uppercase tracking-widest font-semibold" style={{ color: "var(--color-gold)" }}>
@@ -695,9 +746,6 @@ function FinalCTA() {
 
         <div className="mt-6">
           <CTAButton />
-          <p className="trust-strip">
-            30 minutes · 5 spots per week only
-          </p>
         </div>
       </div>
     </section>

@@ -43,7 +43,7 @@ function ApplyPage() {
       <div className="text-center max-w-3xl mb-12 relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Let's see if this is a fit.</h1>
         <p className="text-lg leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
-          I only take a handful of these calls a week, and I keep them for people who are serious about acting, not collecting more information they'll never use. These four questions tell me if you're a fit and where I can actually move the needle for you. Answer honestly and I'll see you on the call.
+          These calls are limited each week, and they're reserved for people ready to act, not to collect more information they'll never use. The four questions below tell us whether you're a fit and where we can actually move the needle. Answer honestly, and we'll see you on the call.
         </p>
       </div>
 
@@ -82,13 +82,13 @@ function ApplyPage() {
 
         {/* Question 1 */}
         <div className="space-y-4">
-          <p className="text-xl font-bold">Q1. What's the biggest reason you want to talk to me?</p>
+          <p className="text-xl font-bold">Q1. What's your biggest financial concern right now?</p>
           <div className="grid gap-3">
             {[
-              "I make good money but still feel behind",
+              "I earn well but still feel behind",
               "Too much of my income disappears to taxes",
-              "I want to build real wealth and don't have a system for it",
-              "I want to protect my family and build something that lasts"
+              "I can't turn my income into real wealth",
+              "I'm not protecting my family's future the way I want"
             ].map((option) => (
               <label key={option} className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors group">
                 <input type="radio" name="q1" value={option} className="w-4 h-4 accent-gold" required />
@@ -100,13 +100,13 @@ function ApplyPage() {
 
         {/* Question 2 */}
         <div className="space-y-4">
-          <p className="text-xl font-bold">Q2. What's your approximate household income?</p>
+          <p className="text-xl font-bold">Q2. What's your approximate income?</p>
           <div className="grid gap-3">
             {[
-              "Under $120,000",
-              "$120,000 – $200,000",
-              "$200,000 – $350,000",
-              "$350,000+"
+              "Under $60,000",
+              "$60,000 – $100,000",
+              "$100,000 – $175,000",
+              "$175,000+"
             ].map((option) => (
               <label key={option} className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors group">
                 <input type="radio" name="q2" value={option} className="w-4 h-4 accent-gold" required />
@@ -135,11 +135,12 @@ function ApplyPage() {
 
         {/* Question 4 */}
         <div className="space-y-4">
-          <p className="text-xl font-bold">Q4. How ready are you to do something about it?</p>
+          <p className="text-xl font-bold">Q4. How committed are you to changing your financial situation?</p>
           <div className="grid gap-3">
             {[
               "I'm ready to start now",
-              "Soon — within the next month or so",
+              "I'm serious, I just need the right plan",
+              "I'm interested, but still weighing it",
               "Just exploring for now"
             ].map((option) => (
               <label key={option} className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors group">
