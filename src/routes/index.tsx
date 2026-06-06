@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       { title: "Legaciii · Apply for Your Free Strategy Call with Morgan Samuel" },
       { name: "description", content: "Free 1-on-1 strategy call with Morgan Samuel, licensed Canadian financial advisor (LLQP, PCP). No products. No commission. Limited spots each week." },
       { property: "og:title", content: "Legaciii · Apply for Your Free Strategy Call" },
-      { property: "og:description", content: "You earn like you've made it. Your net worth says you haven't. Book a free 30 minute call with Morgan Samuel." },
+      { property: "og:description", content: "You earn like you've made it. Your net worth says you haven't. Book a free 15 minute call with Morgan Samuel." },
       { property: "og:type", content: "website" },
     ],
   }),
@@ -27,7 +27,7 @@ function CTAButton({ label = "See If You Qualify" }: { label?: string }) {
 function TrustStrip() {
   return (
     <p className="trust-strip">
-      15 minutes · 5 sessions
+      15 minutes · 5 sessions per week only
     </p>
   );
 }
@@ -225,9 +225,9 @@ function Hero() {
       />
       
       <div className="container-wide text-center relative z-10">
-        <span className="eyebrow mb-6">Licensed advisor. 20 years. Hundreds of Canadians to real wealth.</span>
+        <span className="eyebrow mb-6">The system behind hundreds of high earners' wealth</span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl mx-auto">
-          The system behind <span style={{ color: "var(--color-gold)" }}>hundreds of high earners' wealth</span>
+          You earn like you've made it. <span style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
         </h1>
 
         <p className="mt-8 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
@@ -323,7 +323,7 @@ function MeetMorgan() {
 
             <div className="mt-12 pt-8 border-t border-gold/10 text-lg leading-relaxed text-ink-soft space-y-6">
               <p>
-                I'm a licensed Canadian financial advisor, and for nearly twenty years I've sat across from hundreds of high earners in the exact spot you're in now: a great income, and not enough to show for it.
+                I've spent nearly twenty years in the financial sector, eleven of them as a licensed Canadian advisor, sitting across from hundreds of high earners in the exact spot you're in now: a great income, and not enough to show for it.
               </p>
               <p>
                 Everything inside the Legaciii Challenge is the work I've already done with real Canadians and real money, organized into a system you can follow one month at a time. It's built for the Canadian tax code and the way Canadian families actually live, not a generic playbook borrowed from somewhere else.
@@ -773,7 +773,7 @@ function FAQ() {
     },
     { 
       q: "How do I know this isn't another program that overpromises?", 
-      a: "Because I'm not promising you anything on the call except 30 honest minutes. I've done this for real Canadians for 20 years, with my license on the line, not sold a dream. Get on, see if what I tell you is worth something, and decide for yourself." 
+      a: "Because I'm not promising you anything on the call except 15 honest minutes. I've done this for real Canadians for 20 years, with my license on the line, not sold a dream. Get on, see if what I tell you is worth something, and decide for yourself." 
     },
   ];
   const [open, setOpen] = useState<number | null>(0);
