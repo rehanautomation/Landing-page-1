@@ -346,26 +346,21 @@ function MeetMorgan() {
 
 /* ---------- 4. THE LEGACIII CHALLENGE ---------- */
 function LegaciiiChallenge() {
-  const steps = [
+  const pillars = [
     {
-      h: "01 — Find where it's leaking.",
-      d: "We start with why your money disappears and give every dollar a job. Inside the first month, you finally see where every dollar goes.",
+      label: "01 · Structure It",
+      title: "Stop the leaks and lock down your foundation.",
+      desc: "We find where your money actually goes and give every dollar a job, turn your credit into real borrowing power, and put protection in place so one bad event can't undo years of work. Chaos becomes control.",
     },
     {
-      h: "02 — Make your credit work for you.",
-      d: "We turn your credit from something quietly costing you into real borrowing power you can use.",
+      label: "02 · Grow It",
+      title: "Turn controlled income into growing wealth.",
+      desc: "Now your money goes to work: real investments matched to your situation, a realistic path to the home you want, and a tax strategy that stops the CRA from quietly bleeding your returns every year.",
     },
     {
-      h: "03 — Protect what you've built.",
-      d: "We put protection in place so one bad event can't wipe out everything you've worked for.",
-    },
-    {
-      h: "04 — Stop overpaying the CRA.",
-      d: "We go after the tax bill that's been bleeding you for years, with strategies built for the Canadian tax code.",
-    },
-    {
-      h: "05 — Build wealth that outlasts you.",
-      d: "We put your money into real investments, with a roadmap that keeps growing after you and passes to your kids.",
+      label: "03 · Protect It",
+      title: "Build wealth that outlasts you.",
+      desc: "We turn what you've built into a legacy: retirement income you can count on, an estate that transfers cleanly, and structures that pass real wealth to your kids instead of the tax man.",
     },
   ];
 
@@ -378,39 +373,29 @@ function LegaciiiChallenge() {
             The Legaciii Challenge: the system that turns income into wealth.
           </h2>
           <p className="mt-5 text-lg md:text-xl" style={{ color: "var(--color-ink)" }}>
-            It's not theory, and it's not another course. It's the exact path that already worked for hundreds of Canadians, laid out step by step, built around the Canadian tax code. One month at a time, with a coach beside you the whole way.
+            It's not theory, and it's not another course. It's the exact path that already worked for hundreds of Canadians: three phases that take you from where your money leaks today to a legacy that outlasts you, all built for the Canadian tax code.
           </p>
         </div>
 
         <div className="mt-16 relative">
-          {/* Horizontal line for desktop */}
+          {/* Connecting line for desktop */}
           <div 
             className="hidden md:block absolute h-[2px]" 
             style={{ 
               top: "24px", 
-              left: "10%",
-              right: "10%",
+              left: "16%",
+              right: "16%",
               background: "linear-gradient(90deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0%, var(--color-gold) 50%, color-mix(in oklab, var(--color-gold) 10%, transparent) 100%)",
-              opacity: 0.4
+              opacity: 0.3
             }} 
           />
 
-          {/* Vertical line for mobile */}
-          <div 
-            className="md:hidden absolute left-6 top-6 bottom-6 w-[2px]" 
-            style={{ 
-              background: "linear-gradient(180deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0%, var(--color-gold) 50%, color-mix(in oklab, var(--color-gold) 10%, transparent) 100%)",
-              opacity: 0.4
-            }} 
-          />
-
-          {/* Items container */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 relative z-10">
-            {steps.map((s, i) => (
-              <div key={i} className="flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-0 md:h-full">
-                {/* Step indicator */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            {pillars.map((p, i) => (
+              <div key={i} className="flex flex-col items-center text-center group">
+                {/* Pillar indicator */}
                 <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 md:mb-6 shadow-md transition-transform hover:scale-110"
+                  className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 mb-8 transition-transform group-hover:scale-110"
                   style={{ 
                     background: "var(--gradient-gold)", 
                     color: "oklch(0.18 0.02 200)",
@@ -421,18 +406,16 @@ function LegaciiiChallenge() {
                   {i + 1}
                 </div>
 
-                {/* Card */}
-                <div className="panel p-6 flex flex-col flex-1 w-full h-full relative transition-transform hover:scale-[1.02] duration-300">
-                  <div className="mb-4">
-                    <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold)" }}>
-                      Step 0{i + 1}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold leading-snug mb-3" style={{ color: "var(--color-cream)" }}>
-                    {s.h.replace(/^\d{2} — /, '')}
+                {/* Pillar Content */}
+                <div className="panel p-8 flex flex-col flex-1 w-full h-full border-t-2 border-t-gold/30">
+                  <span className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "var(--color-gold)" }}>
+                    {p.label}
+                  </span>
+                  <h3 className="text-xl font-bold mb-4 leading-snug" style={{ color: "var(--color-cream)" }}>
+                    {p.title}
                   </h3>
-                  <p className="leading-relaxed text-sm" style={{ color: "var(--color-ink-soft)" }}>
-                    {s.d}
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
+                    {p.desc}
                   </p>
                 </div>
               </div>
@@ -440,9 +423,40 @@ function LegaciiiChallenge() {
           </div>
         </div>
 
+        {/* Support Band */}
+        <div className="mt-12 p-8 md:p-12 rounded-3xl relative overflow-hidden" style={{ background: "color-mix(in oklab, var(--color-gold) 5%, var(--color-navy))" }}>
+          <div className="absolute inset-0 opacity-10" style={{ background: "radial-gradient(circle at 50% 50%, var(--color-gold) 0%, transparent 70%)" }} />
+          
+          <div className="relative z-10 text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-cream)" }}>You don't do any of it alone.</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <div className="space-y-3">
+              <p className="font-bold text-gold">A dedicated coach.</p>
+              <p className="text-sm text-ink-soft">Every step, every week, until it's actually done.</p>
+            </div>
+            <div className="space-y-3">
+              <p className="font-bold text-gold">A full team of vetted specialists, included.</p>
+              <p className="text-sm text-ink-soft mb-4">You never have to find, vet, or second-guess any of them.</p>
+              <div className="flex flex-wrap gap-2">
+                {["Estate lawyer", "Mortgage broker", "Tax specialist", "Insurance expert", "Licensed trustee", "Real estate expert"].map((role) => (
+                  <span key={role} className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-gold/10 text-gold/80 border border-gold/20">
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-3">
+              <p className="font-bold text-gold">A private room of people like you.</p>
+              <p className="text-sm text-ink-soft">High earners doing the same work, so you're never figuring it out in isolation.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-16 text-center max-w-2xl mx-auto">
           <p className="text-lg md:text-xl italic mb-10" style={{ color: "var(--color-cream)" }}>
-            Other programs hand you a folder and wish you luck. Here, a coach makes sure every step actually gets done, every week, until it's finished.
+            Most programs hand you a folder and wish you luck. This one surrounds you with the people who make sure it gets done.
           </p>
           <CTAButton />
           <TrustStrip />
