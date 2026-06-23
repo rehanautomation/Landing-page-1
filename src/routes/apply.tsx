@@ -20,6 +20,16 @@ function ApplyPage() {
     if ('scrollRestoration' in history) {
       window.history.scrollRestoration = 'manual';
     }
+
+    // Dynamically load the form embed script
+    const script = document.createElement("script");
+    script.src = "https://link.msgsndr.com/js/form_embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
@@ -47,114 +57,47 @@ function ApplyPage() {
         </p>
       </div>
 
-      {/* Form Section */}
-      <form className="w-full max-w-2xl space-y-10 mb-20 relative z-10">
-        {/* Standard Info */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-semibold uppercase tracking-wider ml-1" style={{ color: "var(--color-gold)" }}>Name</label>
-            <input 
-              type="text" 
-              placeholder="Your full name" 
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-gold/50 transition-colors"
-              required 
+      {/* Form Section Wrapper with Background Gradient */}
+      <div className="relative w-full max-w-4xl mb-20 z-10">
+        <div 
+          className="absolute inset-0 pointer-events-none" 
+          style={{ 
+            background: "radial-gradient(circle at 50% 50%, #002222 0%, transparent 80%)",
+            transform: "scale(1.3)",
+            zIndex: 0
+          }} 
+        />
+        {/* Form Section Container */}
+        <div 
+          className="w-full rounded-2xl p-4 md:p-10 border relative z-10"
+          style={{
+            background: "rgba(255, 255, 255, 0.02)",
+            borderColor: "rgba(233, 162, 59, 0.15)",
+            boxShadow: "0 0 20px rgba(233, 162, 59, 0.12), 0 4px 30px rgba(0, 0, 0, 0.5)",
+            height: "auto"
+          }}
+        >
+          <div className="w-full max-w-[550px] mx-auto" style={{ height: "auto" }}>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/xdhvvKDrGcS6ViY47dab"
+              style={{ width: "100%", height: "1350px", border: "none", borderRadius: "8px" }}
+              id="inline-xdhvvKDrGcS6ViY47dab" 
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Application Form "
+              data-height="906"
+              data-layout-iframe-id="inline-xdhvvKDrGcS6ViY47dab"
+              data-form-id="xdhvvKDrGcS6ViY47dab"
+              title="Application Form "
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-semibold uppercase tracking-wider ml-1" style={{ color: "var(--color-gold)" }}>Email</label>
-            <input 
-              type="email" 
-              placeholder="your@email.com" 
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-gold/50 transition-colors"
-              required 
-            />
-          </div>
-          <div className="space-y-2 md:col-span-2">
-            <label className="text-sm font-semibold uppercase tracking-wider ml-1" style={{ color: "var(--color-gold)" }}>Phone</label>
-            <input 
-              type="tel" 
-              placeholder="Your phone number" 
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-gold/50 transition-colors"
-              required 
-            />
-          </div>
         </div>
-
-        {/* Question 1 */}
-        <div className="space-y-4">
-          <p className="text-xl font-bold">Q1. What's your biggest financial concern right now?</p>
-          <div className="grid gap-3">
-            {[
-              "I earn well but still feel behind",
-              "Too much of my income disappears to taxes",
-              "I can't turn my income into real wealth",
-              "I'm not protecting my family's future the way I want"
-            ].map((option) => (
-              <label key={option} className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors group">
-                <input type="radio" name="q1" value={option} className="w-4 h-4 accent-gold" required />
-                <span className="text-cream group-hover:text-white transition-colors">{option}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Question 2 */}
-        <div className="space-y-4">
-          <p className="text-xl font-bold">Q2. What's your approximate income?</p>
-          <div className="grid gap-3">
-            {[
-              "Under $60,000",
-              "$60,000 – $100,000",
-              "$100,000 – $175,000",
-              "$175,000+"
-            ].map((option) => (
-              <label key={option} className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors group">
-                <input type="radio" name="q2" value={option} className="w-4 h-4 accent-gold" required />
-                <span className="text-cream group-hover:text-white transition-colors">{option}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Question 3 */}
-        <div className="space-y-4">
-          <p className="text-xl font-bold">Q3. Who makes the big financial decisions in your household?</p>
-          <div className="grid gap-3">
-            {[
-              "Me",
-              "My partner and I, together",
-              "Mostly my partner or someone else"
-            ].map((option) => (
-              <label key={option} className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors group">
-                <input type="radio" name="q3" value={option} className="w-4 h-4 accent-gold" required />
-                <span className="text-cream group-hover:text-white transition-colors">{option}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Question 4 */}
-        <div className="space-y-4">
-          <p className="text-xl font-bold">Q4. How committed are you to changing your financial situation?</p>
-          <div className="grid gap-3">
-            {[
-              "I'm ready to start now",
-              "I'm serious, I just need the right plan",
-              "I'm interested, but still weighing it",
-              "Just exploring for now"
-            ].map((option) => (
-              <label key={option} className="flex items-center gap-3 p-4 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors group">
-                <input type="radio" name="q4" value={option} className="w-4 h-4 accent-gold" required />
-                <span className="text-cream group-hover:text-white transition-colors">{option}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <button type="submit" className="btn-primary w-full py-5 text-xl mt-12">
-          Submit Application <span aria-hidden className="ml-2">→</span>
-        </button>
-      </form>
+      </div>
 
       {/* Footer */}
       <footer className="w-full py-10 text-center text-xs text-muted-foreground border-t mt-auto" style={{ borderColor: "color-mix(in oklab, var(--color-gold) 15%, transparent)" }}>
