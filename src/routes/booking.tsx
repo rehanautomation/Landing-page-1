@@ -32,7 +32,7 @@ function BookingPage() {
   }, []);
 
   return (
-    <main className="min-h-screen relative overflow-hidden flex flex-col items-center py-12 px-5" style={{ backgroundColor: "#000421" }}>
+    <main className="min-h-screen relative overflow-hidden flex flex-col items-center py-8 md:py-12 px-4 sm:px-5" style={{ backgroundColor: "#000421" }}>
       {/* Background Gradient */}
       <div 
         className="absolute top-0 left-0 right-0 pointer-events-none" 
@@ -44,12 +44,12 @@ function BookingPage() {
       />
 
       {/* Logo */}
-      <div className="mb-12 relative z-10">
-        <img src={logo} alt="Legaciii" className="h-16 w-auto" />
+      <div className="mb-8 md:mb-12 relative z-10">
+        <img src={logo} alt="Legaciii" className="h-12 sm:h-14 md:h-16 w-auto" />
       </div>
 
       {/* Calendar Section Wrapper with Background Gradient */}
-      <div className="relative w-full max-w-6xl mb-20 z-10">
+      <div className="relative w-full max-w-6xl mb-14 md:mb-20 z-10">
         <div 
           className="absolute inset-0 pointer-events-none" 
           style={{ 
@@ -60,7 +60,7 @@ function BookingPage() {
         />
         {/* Calendar Section Container */}
         <div 
-          className="w-full rounded-2xl p-4 md:p-10 border relative z-10"
+          className="w-full rounded-2xl p-2 sm:p-4 md:p-10 border relative z-10"
           style={{
             background: "rgba(255, 255, 255, 0.02)",
             borderColor: "rgba(233, 162, 59, 0.15)",
@@ -71,8 +71,8 @@ function BookingPage() {
           <div className="w-full max-w-[1000px] mx-auto" style={{ height: "auto" }}>
             <iframe
               src="https://api.leadconnectorhq.com/widget/booking/6dHpDYFwfMgU5wmwS5wv"
-              style={{ width: "100%", height: "1000px", border: "none", borderRadius: "8px", overflow: "hidden" }}
-              scrolling="no"
+              className="h-[1180px] sm:h-[1050px] md:h-[1000px]"
+              style={{ width: "100%", border: "none", borderRadius: "8px" }}
               id="6dHpDYFwfMgU5wmwS5wv_1782208808320"
               title="Booking Calendar"
             />

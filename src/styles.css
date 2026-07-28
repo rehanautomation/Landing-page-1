@@ -91,9 +91,15 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    /* keeps iOS overscroll from flashing white behind the page */
+    background: #000421;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     background: var(--gradient-page);
+    overflow-x: hidden;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -111,6 +117,7 @@
     background: var(--gradient-gold);
     color: oklch(0.18 0.02 200);
     font-weight: 600;
+    min-height: 48px;
     padding: 0.95rem 1.75rem;
     border-radius: 6px;
     box-shadow: var(--shadow-gold);
@@ -142,7 +149,8 @@
     letter-spacing: 0.01em;
   }
 
-  .section { padding: 5rem 1.25rem; }
+  .section { padding: 3.5rem 1.25rem; }
+  @media (min-width: 640px) { .section { padding: 5rem 1.5rem; } }
   @media (min-width: 768px) { .section { padding: 7rem 2rem; } }
 
   .container-narrow { max-width: 880px; margin: 0 auto; }
@@ -156,10 +164,13 @@
 
   .eyebrow {
     display: inline-block;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-gold);
+  }
+  @media (min-width: 768px) {
+    .eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; }
   }
 }

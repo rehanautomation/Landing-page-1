@@ -24,7 +24,7 @@ function ThankYouPage() {
   }, []);
 
   return (
-    <main className="min-h-screen relative flex flex-col items-center py-12 px-5" style={{ backgroundColor: "#000421" }}>
+    <main className="min-h-screen relative flex flex-col items-center py-8 md:py-12 px-4 sm:px-5" style={{ backgroundColor: "#000421" }}>
       {/* Background Gradient */}
       <div 
         className="absolute top-0 left-0 right-0 pointer-events-none" 
@@ -37,7 +37,7 @@ function ThankYouPage() {
 
       {/* Top Banner Alert */}
       <div 
-        className="w-full py-3 px-4 text-center font-bold text-sm md:text-base relative z-20 flex items-center justify-center gap-2 mb-12 rounded shadow-lg max-w-4xl"
+        className="w-full py-3 px-3 text-center font-bold text-[0.82rem] sm:text-sm md:text-base relative z-20 flex items-center justify-center gap-2 mb-10 md:mb-12 rounded shadow-lg max-w-4xl"
         style={{ backgroundColor: "var(--color-gold)", color: "#000421" }}
       >
         <span>⚠️</span>
@@ -47,12 +47,12 @@ function ThankYouPage() {
 
       {/* Logo */}
       <div className="mb-8 relative z-10">
-        <img src={logo} alt="Legaciii" className="h-16 w-auto" />
+        <img src={logo} alt="Legaciii" className="h-12 sm:h-14 md:h-16 w-auto" />
       </div>
 
       {/* Heading Section */}
-      <div className="text-center max-w-4xl mb-16 relative z-10 px-4">
-        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight text-white mb-4">
+      <div className="text-center max-w-4xl mb-10 md:mb-16 relative z-10 px-1">
+        <h1 className="text-[1.65rem] sm:text-3xl md:text-5xl font-extrabold leading-tight text-white mb-4 text-balance">
           Complete A Few Steps To Confirm Your Appointment
         </h1>
       </div>
@@ -75,7 +75,7 @@ function ThankYouPage() {
         </svg>
 
         {/* Step 1 and 2 Side by Side - using max-w-3xl for smaller cards and more space */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-3xl mb-24 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full max-w-3xl mb-14 md:mb-24 relative">
           
           {/* Step 1 Card */}
           <div 
@@ -140,10 +140,16 @@ function ThankYouPage() {
                 You may also notice an email from Google titled <strong className="font-bold text-white">"Invitation from an unknown sender"</strong>. This is due to a recent Google Calendar update that has a slight technical bug. If you see this email, please select <strong className="font-bold" style={{ color: "var(--color-gold)" }}>"I know the sender"</strong> to avoid confusion.
               </p>
 
-              {/* Unknown sender Actual Screenshot */}
-              <div className="w-full flex flex-col items-center justify-center overflow-hidden rounded shadow-lg border border-gray-700 bg-white">
-                 <img src={step3Img} alt="Google Unknown Sender Warning" className="w-full h-auto object-cover" />
+              {/* Unknown sender Actual Screenshot — too dense to read at phone width,
+                  so it stays legible inside a horizontally scrollable frame on mobile */}
+              <div className="w-full overflow-x-auto rounded shadow-lg border border-gray-700 bg-white">
+                 <img
+                   src={step3Img}
+                   alt="Google Unknown Sender Warning"
+                   className="h-auto max-w-none w-[620px] md:w-full"
+                 />
               </div>
+              <p className="mt-2 text-[11px] text-gray-400 md:hidden">Swipe the image to see the full message</p>
             </div>
           </div>
         </div>

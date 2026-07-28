@@ -63,11 +63,15 @@ function ScrollProgress() {
 function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md" style={{ background: "color-mix(in oklab, var(--color-deep) 75%, transparent)", borderBottom: "1px solid color-mix(in oklab, var(--color-gold) 18%, transparent)" }}>
-      <div className="container-wide flex items-center justify-between px-5 py-2.5">
-        <a href="#top" className="flex items-center gap-2">
-          <img src={logo} alt="Legaciii" className="h-14 w-auto" />
+      <div className="container-wide flex items-center justify-between gap-3 px-4 py-2 sm:px-5 sm:py-2.5">
+        <a href="#top" className="flex items-center gap-2 py-1 -my-1 shrink-0">
+          <img src={logo} alt="Legaciii" className="h-9 sm:h-12 md:h-14 w-auto" />
         </a>
-        <Link to="/apply" className="btn-primary" style={{ padding: "0.55rem 1.1rem", fontSize: "0.85rem" }}>
+        <Link
+          to="/apply"
+          className="btn-primary whitespace-nowrap text-[0.8rem] px-4 sm:text-[0.85rem] sm:px-[1.1rem]"
+          style={{ paddingTop: "0.55rem", paddingBottom: "0.55rem", minHeight: "44px" }}
+        >
           See if you qualify
         </Link>
       </div>
@@ -188,7 +192,7 @@ function ResultsPanel() {
   return (
     <div className="container-wide px-5 mt-8 relative z-20">
       <div 
-        className="flex flex-col items-center p-8 md:p-12 rounded-3xl"
+        className="flex flex-col items-center p-6 sm:p-8 md:p-12 rounded-3xl"
         style={{ 
           background: "color-mix(in oklab, var(--color-navy) 80%, black)",
           border: "1px solid color-mix(in oklab, var(--color-gold) 20%, transparent)",
@@ -196,13 +200,13 @@ function ResultsPanel() {
         }}
       >
         <span className="eyebrow mb-8 text-center" style={{ color: "var(--color-cream)" }}>The numbers behind the system</span>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8 w-full">
           {stats.map((s, i) => (
             <div key={i} className="text-center space-y-2">
-              <div className="text-4xl md:text-5xl font-bold" style={{ color: "var(--color-gold)" }}>
+              <div className="text-[2.1rem] sm:text-4xl md:text-5xl font-bold" style={{ color: "var(--color-gold)" }}>
                 <AnimatedCounter value={s.value} prefix={s.prefix} suffix={s.suffix} />
               </div>
-              <div className="text-sm uppercase tracking-widest font-medium" style={{ color: "var(--color-ink-soft)" }}>{s.label}</div>
+              <div className="text-[0.8rem] sm:text-sm uppercase tracking-[0.12em] sm:tracking-widest font-medium" style={{ color: "var(--color-ink-soft)" }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -226,11 +230,12 @@ function Hero() {
       
       <div className="container-wide text-center relative z-10">
         <span className="eyebrow mb-6">The system behind hundreds of high earners' wealth</span>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl mx-auto">
-          You earn like you've made it. <span style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
+        <h1 className="text-[2.05rem] sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.12] md:leading-[1.05] max-w-5xl mx-auto text-balance">
+          You earn like you've made it.{" "}
+          <span className="block md:inline mt-2 md:mt-0" style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
         </h1>
 
-        <p className="mt-8 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
+        <p className="mt-6 md:mt-8 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
           In 5 minutes, you are about to learn the real reason your income never turns into wealth, and a system that finally changes that.
         </p>
 
@@ -243,11 +248,11 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-12">
-          <p className="mb-6 text-sm uppercase tracking-widest font-semibold" style={{ color: "var(--color-gold)" }}>
+        <div className="mt-10 md:mt-12">
+          <p className="mb-5 md:mb-6 text-[0.8rem] sm:text-sm uppercase tracking-widest font-semibold" style={{ color: "var(--color-gold)" }}>
             I'm taking a limited number of calls this week.
           </p>
-          <Link to="/apply" className="btn-primary text-lg px-10 py-5">
+          <Link to="/apply" className="btn-primary w-full sm:w-auto text-base md:text-lg px-6 sm:px-10 py-4 sm:py-5">
             See If You Qualify <span aria-hidden className="ml-2">→</span>
           </Link>
           <TrustStrip />
@@ -262,30 +267,30 @@ function Trap() {
   return (
     <section className="section">
       <div className="container-narrow">
-        <h2 className="text-3xl md:text-5xl font-bold text-center leading-tight">
+        <h2 className="text-[1.7rem] sm:text-3xl md:text-5xl font-bold text-center leading-tight text-balance">
           On paper, you're the success story.
           <br />
           So why does it feel like you're losing ground every month?
         </h2>
 
-        <div className="mt-10 space-y-5 text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
+        <div className="mt-8 md:mt-10 space-y-5 text-base sm:text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
           <p>You crossed six figures. Maybe well past it. The income is real. But the money comes in and disappears, and you couldn't tell anyone exactly where it went.</p>
           <p>Real estate still feels out of reach, even at $150K+. The tax bill feels like a ceiling you can't get over. And underneath all of it is a thought you don't say out loud:</p>
-          <p className="text-2xl md:text-3xl font-semibold italic border-l-4 pl-6 my-8" style={{ borderColor: "var(--color-gold)", color: "var(--color-cream)" }}>
+          <p className="text-xl sm:text-2xl md:text-3xl font-semibold italic border-l-4 pl-5 md:pl-6 my-8" style={{ borderColor: "var(--color-gold)", color: "var(--color-cream)" }}>
             "I make good money. I should be further ahead than this."
           </p>
         </div>
 
         <blockquote
-          className="my-14 p-8 md:p-12 rounded-2xl text-center"
+          className="my-10 md:my-14 p-6 sm:p-8 md:p-12 rounded-2xl text-center"
           style={{ background: "var(--gradient-deep)", border: "1px solid color-mix(in oklab, var(--color-gold) 22%, transparent)" }}
         >
-          <p className="text-2xl md:text-4xl font-semibold leading-snug" style={{ color: "var(--color-cream)" }}>
+          <p className="text-[1.4rem] sm:text-2xl md:text-4xl font-semibold leading-snug" style={{ color: "var(--color-cream)" }}>
             It was never an income problem.
           </p>
         </blockquote>
 
-        <div className="space-y-5 text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
+        <div className="space-y-5 text-base sm:text-lg leading-relaxed" style={{ color: "var(--color-ink)" }}>
           <p>More income just handed you more to lose track of. Not because you're careless, but because no one ever built you a system to turn it into wealth. That gap is the only thing standing between your income and your net worth.</p>
         </div>
       </div>
@@ -314,7 +319,7 @@ function MeetMorgan() {
 
           <div>
             <span className="eyebrow">Why listen to me</span>
-            <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+            <h2 className="mt-3 text-[1.7rem] sm:text-3xl md:text-5xl font-bold leading-tight text-balance">
               I'm not an internet personality with a theory.
             </h2>
             <p className="mt-3 text-sm font-medium" style={{ color: "var(--color-ink-soft)" }}>
@@ -367,7 +372,7 @@ function LegaciiiChallenge() {
       <div className="container-wide">
         <div className="text-center max-w-3xl mx-auto">
           <span className="eyebrow">The system</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 className="mt-3 text-[1.7rem] sm:text-3xl md:text-5xl font-bold leading-tight text-balance">
             The Legaciii Challenge: the system that turns income into wealth.
           </h2>
           <p className="mt-5 text-lg md:text-xl" style={{ color: "var(--color-ink)" }}>
@@ -375,7 +380,7 @@ function LegaciiiChallenge() {
           </p>
         </div>
 
-        <div className="mt-16 relative">
+        <div className="mt-12 md:mt-16 relative">
           {/* Connecting line for desktop */}
           <div 
             className="hidden md:block absolute h-[2px]" 
@@ -388,7 +393,7 @@ function LegaciiiChallenge() {
             }} 
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative z-10">
             {pillars.map((p, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 {/* Pillar indicator */}
@@ -405,7 +410,7 @@ function LegaciiiChallenge() {
                 </div>
 
                 {/* Pillar Content */}
-                <div className="panel p-8 flex flex-col flex-1 w-full h-full border-t-2 border-t-gold/30">
+                <div className="panel p-6 sm:p-8 flex flex-col flex-1 w-full h-full border-t-2 border-t-gold/30">
                   <span className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "var(--color-gold)" }}>
                     {p.label}
                   </span>
@@ -422,10 +427,10 @@ function LegaciiiChallenge() {
         </div>
 
         {/* Your Support System */}
-        <div className="mt-24 space-y-4">
+        <div className="mt-16 md:mt-24 space-y-4">
           <div className="text-center max-w-[600px] mx-auto mb-12">
             <span className="eyebrow" style={{ color: "var(--color-gold)" }}>YOUR SUPPORT SYSTEM</span>
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold text-white">You don't do any of it alone.</h2>
+            <h2 className="mt-4 text-[1.7rem] sm:text-3xl md:text-5xl font-bold text-white text-balance">You don't do any of it alone.</h2>
             <p className="mt-4 text-lg" style={{ color: "#9aa9bd" }}>
               The system is the roadmap. These are the people who get you to the destination.
             </p>
@@ -484,7 +489,7 @@ function LegaciiiChallenge() {
                 <div key={role} className="flex items-center gap-3 px-[13px] py-[11px] rounded-[9px] border" 
                      style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.07)" }}>
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#e9a23b" }} />
-                  <span className="text-[11px] md:text-xs font-bold uppercase tracking-wider text-white/90">{role}</span>
+                  <span className="text-[12px] md:text-xs font-bold uppercase tracking-wide text-white/90">{role}</span>
                 </div>
               ))}
             </div>
@@ -543,7 +548,7 @@ function WhyMorgan() {
       <div className="container-wide max-w-4xl">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">The difference</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold" style={{ color: "var(--color-cream)" }}>
+          <h2 className="mt-3 text-[1.7rem] sm:text-3xl md:text-5xl font-bold text-balance" style={{ color: "var(--color-cream)" }}>
             You've probably tried some version of this before.
           </h2>
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink-soft)" }}>
@@ -551,7 +556,7 @@ function WhyMorgan() {
           </p>
         </div>
 
-        <div className="mt-14 space-y-4">
+        <div className="mt-10 md:mt-14 space-y-4">
           <div className="hidden md:grid md:grid-cols-2 gap-4 px-2 text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--color-ink-soft)" }}>
             <div>What you've tried</div>
             <div style={{ color: "var(--color-gold)" }}>With the Legaciii Challenge</div>
@@ -608,17 +613,17 @@ function Proof() {
       <div className="container-wide">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Real client work</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold">This is what happens when someone finally has a system.</h2>
+          <h2 className="mt-3 text-[1.7rem] sm:text-3xl md:text-5xl font-bold text-balance">This is what happens when someone finally has a system.</h2>
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>Real Canadians. Real numbers. Years before any of this was a program.</p>
         </div>
 
-        <div className="mt-16 flex flex-col gap-10 max-w-4xl mx-auto">
+        <div className="mt-10 md:mt-16 flex flex-col gap-6 md:gap-10 max-w-4xl mx-auto">
           {testimonials.map((t, i) => {
             const isEven = i % 2 === 0;
             return (
               <div
                 key={i}
-                className={`w-full md:max-w-[85%] p-8 md:p-10 pt-12 relative flex flex-col justify-between transition-all hover:scale-[1.01] duration-300 ${
+                className={`w-full md:max-w-[85%] p-6 pt-12 md:p-10 md:pt-12 relative flex flex-col justify-between transition-all hover:scale-[1.01] duration-300 ${
                   isEven ? "md:self-start md:ml-4" : "md:self-end md:mr-4"
                 }`}
                 style={{ 
@@ -629,18 +634,18 @@ function Proof() {
                 }}
               >
                 {/* Glowing Quote mark */}
-                <div 
-                  className="absolute -top-5 left-10 px-2 text-5xl font-serif select-none" 
-                  style={{ 
-                    color: "var(--color-gold)", 
-                    backgroundColor: "var(--background)",
+                <div
+                  className="absolute top-3 left-7 md:left-10 text-5xl font-serif select-none pointer-events-none"
+                  style={{
+                    color: "var(--color-gold)",
+                    opacity: 0.45,
                     lineHeight: 1
                   }}
                 >
                   “
                 </div>
 
-                <p className="text-lg md:text-xl leading-relaxed text-cream font-medium">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-cream font-medium">
                   {t.text}
                 </p>
 
@@ -680,12 +685,12 @@ function IsThisForYou() {
       <div className="container-wide">
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">BEFORE YOU BOOK</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold">This call isn't for everyone.</h2>
+          <h2 className="mt-3 text-[1.7rem] sm:text-3xl md:text-5xl font-bold text-balance">This call isn't for everyone.</h2>
           <p className="mt-4 text-lg" style={{ color: "var(--color-ink)" }}>We only take a handful a week. Here's who they're for.</p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div className="p-8 rounded-2xl panel" style={{ borderColor: "var(--color-gold)", boxShadow: "var(--shadow-card)" }}>
+        <div className="mt-10 md:mt-14 grid md:grid-cols-2 gap-5 md:gap-6 max-w-4xl mx-auto">
+          <div className="p-6 sm:p-8 rounded-2xl panel" style={{ borderColor: "var(--color-gold)", boxShadow: "var(--shadow-card)" }}>
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2" style={{ color: "var(--color-gold)" }}>
               <span className="inline-flex w-8 h-8 rounded-full items-center justify-center text-sm" style={{ background: "var(--gradient-gold)", color: "var(--color-deep)" }}>✓</span>
               This is for you if
@@ -699,7 +704,7 @@ function IsThisForYou() {
               ))}
             </ul>
           </div>
-          <div className="p-8 rounded-2xl panel" style={{ borderColor: "color-mix(in oklab, white 15%, transparent)", boxShadow: "var(--shadow-card)" }}>
+          <div className="p-6 sm:p-8 rounded-2xl panel" style={{ borderColor: "color-mix(in oklab, white 15%, transparent)", boxShadow: "var(--shadow-card)" }}>
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2" style={{ color: "var(--color-ink-soft)" }}>
               <span className="inline-flex w-8 h-8 rounded-full items-center justify-center text-sm" style={{ background: "color-mix(in oklab, white 15%, transparent)", color: "var(--color-cream)" }}>✕</span>
               This isn't for you if
@@ -730,13 +735,13 @@ function FinalCTA() {
     <section className="section" style={{ background: "var(--gradient-deep)" }}>
       <div className="container-narrow text-center">
         <span className="eyebrow">The cost of inaction</span>
-        <h2 className="mt-4 text-4xl md:text-6xl font-bold leading-tight" style={{ color: "var(--color-cream)" }}>
+        <h2 className="mt-4 text-[1.85rem] sm:text-4xl md:text-6xl font-bold leading-tight text-balance" style={{ color: "var(--color-cream)" }}>
           Every month without a system is a month you don't get back.
         </h2>
-        <p className="mt-8 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
+        <p className="mt-7 md:mt-8 text-base sm:text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
           The tax you didn't plan for is already gone. The borrowing power you never built cost you the deal. The income that got absorbed this month compounds into nothing.
         </p>
-        <p className="mt-4 text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-cream)" }}>
+        <p className="mt-4 text-base sm:text-lg md:text-xl leading-relaxed" style={{ color: "var(--color-cream)" }}>
           Book a discovery session. We'll pinpoint where your money's leaking and whether the Challenge is the right fit for you. If it is, you'll see exactly what working together looks like. If it isn't, you'll walk away with direction anyway.
         </p>
 
@@ -783,23 +788,23 @@ function FAQ() {
       <div className="container-narrow">
         <div className="text-center">
           <span className="eyebrow">FAQ</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold">A few honest answers</h2>
+          <h2 className="mt-3 text-[1.7rem] sm:text-3xl md:text-5xl font-bold text-balance">A few honest answers</h2>
         </div>
 
-        <div className="mt-12 space-y-3">
+        <div className="mt-9 md:mt-12 space-y-3">
           {items.map((it, i) => {
             const isOpen = open === i;
             return (
               <div key={i} className="rounded-xl panel overflow-hidden" style={{ boxShadow: isOpen ? "var(--shadow-card)" : "none" }}>
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-white/[0.03] transition"
+                  className="w-full text-left px-5 sm:px-6 py-5 flex justify-between items-center gap-4 hover:bg-white/[0.03] transition"
                 >
                   <span className="font-semibold text-base md:text-lg" style={{ color: "var(--color-cream)" }}>{it.q}</span>
                   <span className={`text-2xl transition-transform ${isOpen ? "rotate-45" : ""}`} style={{ color: "var(--color-gold)" }}>+</span>
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 leading-relaxed" style={{ color: "var(--color-ink)" }}>{it.a}</div>
+                  <div className="px-5 sm:px-6 pb-6 leading-relaxed text-[0.95rem] sm:text-base" style={{ color: "var(--color-ink)" }}>{it.a}</div>
                 )}
               </div>
             );
