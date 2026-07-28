@@ -227,7 +227,7 @@ function Hero() {
       <div className="container-wide text-center relative z-10">
         <span className="eyebrow mb-6">The system behind hundreds of high earners' wealth</span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-5xl mx-auto">
-          You earn like you've made it. <span style={{ color: "#D35400" }}>Your net worth says you haven't.</span>
+          You earn like you've made it. <span style={{ color: "var(--color-gold)" }}>Your net worth says you haven't.</span>
         </h1>
 
         <p className="mt-8 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>

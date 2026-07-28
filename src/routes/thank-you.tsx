@@ -37,8 +37,8 @@ function ThankYouPage() {
 
       {/* Top Banner Alert */}
       <div 
-        className="w-full text-white py-3 px-4 text-center font-bold text-sm md:text-base relative z-20 flex items-center justify-center gap-2 mb-12 rounded shadow-lg max-w-4xl"
-        style={{ backgroundColor: "#D35400" }} 
+        className="w-full py-3 px-4 text-center font-bold text-sm md:text-base relative z-20 flex items-center justify-center gap-2 mb-12 rounded shadow-lg max-w-4xl"
+        style={{ backgroundColor: "var(--color-gold)", color: "#000421" }}
       >
         <span>⚠️</span>
         <span>Important: Your Call Is <span className="underline">Tentatively</span> Scheduled!</span>
@@ -65,13 +65,13 @@ function ThankYouPage() {
            <path 
              d="M 75% 0 C 75% 100, 50% 50, 50% 180" 
              fill="transparent" 
-             stroke="#D35400" 
+             stroke="var(--color-gold)" 
              strokeWidth="4" 
              strokeDasharray="12 12" 
            />
            {/* Target pulsing circle right above step 3 */}
-           <circle cx="50%" cy="180" r="6" fill="#D35400" />
-           <circle cx="50%" cy="180" r="16" fill="transparent" stroke="#D35400" strokeWidth="2" className="animate-ping" opacity="0.6" />
+           <circle cx="50%" cy="180" r="6" fill="var(--color-gold)" />
+           <circle cx="50%" cy="180" r="16" fill="transparent" stroke="var(--color-gold)" strokeWidth="2" className="animate-ping" opacity="0.6" />
         </svg>
 
         {/* Step 1 and 2 Side by Side - using max-w-3xl for smaller cards and more space */}
@@ -128,7 +128,7 @@ function ThankYouPage() {
             }}
           >
             {/* Header of box */}
-            <div className="text-white py-2 px-4 font-bold text-center text-sm flex items-center justify-center gap-2" style={{ backgroundColor: "#D35400" }}>
+            <div className="py-2 px-4 font-bold text-center text-sm flex items-center justify-center gap-2" style={{ backgroundColor: "var(--color-gold)", color: "#000421" }}>
               <span>ℹ️</span>
               <span>This Google Update Could Affect Your Appointment</span>
             </div>
@@ -137,7 +137,7 @@ function ThankYouPage() {
             <div className="p-5 md:p-6 flex flex-col items-center">
               <h2 className="text-xl font-bold mb-2 text-white text-center">Step 3:</h2>
               <p className="text-sm leading-relaxed text-center font-medium max-w-2xl mb-5 text-gray-300">
-                You may also notice an email from Google titled <strong className="font-bold text-white">"Invitation from an unknown sender"</strong>. This is due to a recent Google Calendar update that has a slight technical bug. If you see this email, please select <strong className="font-bold" style={{ color: "#E9A23B" }}>"I know the sender"</strong> to avoid confusion.
+                You may also notice an email from Google titled <strong className="font-bold text-white">"Invitation from an unknown sender"</strong>. This is due to a recent Google Calendar update that has a slight technical bug. If you see this email, please select <strong className="font-bold" style={{ color: "var(--color-gold)" }}>"I know the sender"</strong> to avoid confusion.
               </p>
 
               {/* Unknown sender Actual Screenshot */}
