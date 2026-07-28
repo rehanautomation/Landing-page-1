@@ -348,6 +348,32 @@ function MeetMorgan() {
 }
 
 /* ---------- 4. THE LEGACIII CHALLENGE ---------- */
+const supportPeople = [
+  {
+    title: "A dedicated coach",
+    desc: "Your direct line, every week, until the work is done — never figuring it out alone.",
+    icon: (
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="10" cy="7.5" r="3.5" />
+        <path d="M3.5 20a6.5 6.5 0 0 1 11-4.7" />
+        <path d="m15.5 18.5 2 2 4-4.5" />
+      </svg>
+    ),
+  },
+  {
+    title: "A private community",
+    desc: "A room of peers doing the same work, sharing what's working right now.",
+    icon: (
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="8" r="3.2" />
+        <path d="M2.8 19.5a6.2 6.2 0 0 1 12.4 0" />
+        <path d="M16.2 5.2a3.2 3.2 0 0 1 0 5.9" />
+        <path d="M17.6 14.2a6.2 6.2 0 0 1 3.6 5.3" />
+      </svg>
+    ),
+  },
+];
+
 function LegaciiiChallenge() {
   const pillars = [
     {
@@ -427,86 +453,101 @@ function LegaciiiChallenge() {
         </div>
 
         {/* Your Support System */}
-        <div className="mt-16 md:mt-24 space-y-4">
-          <div className="text-center max-w-[600px] mx-auto mb-12">
+        <div className="mt-16 md:mt-24">
+          <div className="text-center max-w-[600px] mx-auto mb-10 md:mb-14">
             <span className="eyebrow" style={{ color: "var(--color-gold)" }}>YOUR SUPPORT SYSTEM</span>
             <h2 className="mt-4 text-[1.7rem] sm:text-3xl md:text-5xl font-bold text-white text-balance">You don't do any of it alone.</h2>
-            <p className="mt-4 text-lg" style={{ color: "#9aa9bd" }}>
+            <p className="mt-4 text-base sm:text-lg" style={{ color: "#9aa9bd" }}>
               The system is the roadmap. These are the people who get you to the destination.
             </p>
           </div>
 
-          {/* Block 1: Two cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Card A: Coach */}
-            <div className="group p-6 md:p-8 rounded-[16px] transition-all duration-200 hover:-translate-y-[3px] border" 
-                 style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)" }}>
-              <style dangerouslySetInnerHTML={{ __html: `
-                .group:hover { border-color: #e9223b !important; }
-                /* Using a slightly more vibrant orange for hover to match intent */
-                .group:hover { border-color: var(--color-gold) !important; }
-              `}} />
-              <div className="w-[44px] h-[44px] md:w-[46px] md:h-[46px] rounded-lg flex items-center justify-center mb-6" style={{ background: "rgba(233,162,59,0.12)", color: "#f0ad4e" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19.07 4.93a10 10 0 0 0-14.14 0M15.54 8.46a5 10 0 0 0-7.08 0"/><rect x="2" y="13" width="4" height="7" rx="2"/><rect x="18" y="13" width="4" height="7" rx="2"/><path d="M12 2v2"/><path d="M12 11v3"/><path d="M12 18v3"/></svg>
-              </div>
-              <h4 className="text-xl font-bold text-white mb-2">A dedicated coach</h4>
-              <p className="text-sm leading-relaxed" style={{ color: "#9aa9bd" }}>
-                Your direct line, every week, until the work is done — never figuring it out alone.
-              </p>
-            </div>
-
-            {/* Card B: Community */}
-            <div className="group p-6 md:p-8 rounded-[16px] transition-all duration-200 hover:-translate-y-[3px] border" 
-                 style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)" }}>
-              <div className="w-[44px] h-[44px] md:w-[46px] md:h-[46px] rounded-lg flex items-center justify-center mb-6" style={{ background: "rgba(233,162,59,0.12)", color: "#f0ad4e" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <h4 className="text-xl font-bold text-white mb-2">A private community</h4>
-              <p className="text-sm leading-relaxed" style={{ color: "#9aa9bd" }}>
-                A room of peers doing the same work, sharing what's working right now.
-              </p>
-            </div>
-          </div>
-
-          {/* Block 2: Expert Network */}
-          <div className="group p-6 md:p-10 rounded-[16px] transition-all duration-200 hover:-translate-y-[3px] border" 
-               style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(233,162,59,0.24)" }}>
-            <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
-              <div className="w-[44px] h-[44px] md:w-[46px] md:h-[46px] rounded-lg flex items-center justify-center shrink-0" style={{ background: "rgba(233,162,59,0.12)", color: "#f0ad4e" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold text-white">An expert network</h4>
-                <p className="text-sm" style={{ color: "#9aa9bd" }}>A full bench of vetted specialists, ready to execute your plan — included.</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-[10px]">
-              {[
-                "Estate Lawyer", "Mortgage Broker", "Tax Specialist", 
-                "Insurance Expert", "Licensed Trustee", "Real Estate Expert"
-              ].map((role) => (
-                <div key={role} className="flex items-center gap-3 px-[13px] py-[11px] rounded-[9px] border" 
-                     style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.07)" }}>
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#e9a23b" }} />
-                  <span className="text-[12px] md:text-xs font-bold uppercase tracking-wide text-white/90">{role}</span>
+          {/* One panel, three tiers — reads as a single system rather than three widgets */}
+          <div
+            className="rounded-[20px] overflow-hidden max-w-5xl mx-auto"
+            style={{
+              background: "color-mix(in oklab, var(--color-panel) 88%, black)",
+              border: "1px solid color-mix(in oklab, var(--color-gold) 20%, transparent)",
+              boxShadow: "var(--shadow-card)",
+            }}
+          >
+            {/* Tier 1 — the two people who are with you every week */}
+            <div className="grid md:grid-cols-2">
+              {supportPeople.map((s, i) => (
+                <div
+                  key={s.title}
+                  className={`p-7 md:p-9 ${i === 0 ? "border-b md:border-b-0 md:border-r" : ""}`}
+                  style={{ borderColor: "rgba(255,255,255,0.07)" }}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <span
+                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                      style={{ border: "1px solid color-mix(in oklab, var(--color-gold) 40%, transparent)", color: "var(--color-gold)" }}
+                    >
+                      {s.icon}
+                    </span>
+                    <h4 className="text-[1.05rem] md:text-lg font-semibold text-white tracking-tight">{s.title}</h4>
+                  </div>
+                  <p className="mt-4 text-[0.95rem] leading-relaxed" style={{ color: "#9aa9bd" }}>
+                    {s.desc}
+                  </p>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Block 3: Testimonial Bar */}
-          <div className="p-6 md:p-8 rounded-[16px] border flex flex-col md:flex-row items-center gap-6" 
-               style={{ background: "rgba(233,162,59,0.06)", borderColor: "rgba(233,162,59,0.22)" }}>
-            <div className="shrink-0 text-gold opacity-40">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2.01697 21L2.01697 18C2.01697 16.8954 2.9124 16 4.01697 16H7.01697C7.56925 16 8.01697 15.5523 8.01697 15V9C8.01697 8.44772 7.56925 8 7.01697 8H4.01697C3.46468 8 3.01697 8.44772 3.01697 9V12C3.01697 12.5523 2.56925 13 2.01697 13H0.0169678V5H10.017V15C10.017 18.3137 7.33066 21 4.01697 21H2.01697Z"/></svg>
+            {/* Tier 2 — the bench */}
+            <div className="p-7 md:p-9 border-t" style={{ borderColor: "rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.015)" }}>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+                <span
+                  className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                  style={{ border: "1px solid color-mix(in oklab, var(--color-gold) 40%, transparent)", color: "var(--color-gold)" }}
+                >
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="4.5" r="2.5" /><circle cx="4.5" cy="19" r="2.5" /><circle cx="19.5" cy="19" r="2.5" />
+                    <path d="M12 7v4M12 11 5.6 16.6M12 11l6.4 5.6" />
+                  </svg>
+                </span>
+                <h4 className="text-[1.05rem] md:text-lg font-semibold text-white tracking-tight">An expert network</h4>
+                <span
+                  className="text-[0.62rem] font-bold uppercase tracking-[0.16em] px-2.5 py-1 rounded-full"
+                  style={{ background: "color-mix(in oklab, var(--color-gold) 16%, transparent)", color: "var(--color-gold)" }}
+                >
+                  Included
+                </span>
+              </div>
+              <p className="mt-4 text-[0.95rem] leading-relaxed" style={{ color: "#9aa9bd" }}>
+                A full bench of vetted specialists, ready to execute your plan.
+              </p>
+
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10">
+                {[
+                  "Estate Lawyer", "Mortgage Broker", "Tax Specialist",
+                  "Insurance Expert", "Licensed Trustee", "Real Estate Expert",
+                ].map((role) => (
+                  <div
+                    key={role}
+                    className="flex items-center gap-3 py-3 border-b last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0 md:[&:nth-last-child(-n+3)]:border-b-0"
+                    style={{ borderColor: "rgba(255,255,255,0.06)" }}
+                  >
+                    <span className="w-[5px] h-[5px] rotate-45 shrink-0" style={{ background: "var(--color-gold)" }} />
+                    <span className="text-[0.78rem] font-semibold uppercase tracking-[0.09em] text-white/85">{role}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <p className="text-lg italic leading-relaxed text-cream flex-1 text-center md:text-left">
-              "The network alone saved me months of vetting. It's like having a family office for the first time."
-            </p>
-            <p className="text-sm font-bold uppercase tracking-widest text-gold shrink-0 md:ml-auto">
-              — Verified Client
-            </p>
+
+            {/* Tier 3 — proof, tied to the same frame */}
+            <div
+              className="px-7 py-6 md:px-9 md:py-7 border-t flex flex-col md:flex-row md:items-center gap-3 md:gap-6"
+              style={{ borderColor: "rgba(255,255,255,0.07)", background: "color-mix(in oklab, var(--color-gold) 7%, transparent)" }}
+            >
+              <p className="text-[0.98rem] md:text-lg italic leading-relaxed flex-1" style={{ color: "var(--color-cream)" }}>
+                “The network alone saved me months of vetting. It's like having a family office for the first time.”
+              </p>
+              <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] shrink-0" style={{ color: "var(--color-gold)" }}>
+                — Verified Client
+              </p>
+            </div>
           </div>
         </div>
 
