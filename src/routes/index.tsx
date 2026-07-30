@@ -801,12 +801,8 @@ function FinalCTA() {
 /* ---------- 9. FAQ ---------- */
 function FAQ() {
   const items = [
-    { 
-      q: "Why is this free? What's the catch?", 
-      a: "No catch. The fastest way to show you I'm different from everyone who's let you down is to be useful first. On the call we find where your money's leaking and decide together if the Legaciii Challenge fits. Some people move forward. Most don't, and that's fine. You walk away with real direction either way." 
-    },
-    { 
-      q: "Is the Legaciii Challenge a paid program?", 
+    {
+      q: "Is the Legaciii Challenge a paid program?",
       a: "The strategy session is completely free. The Legaciii Challenge itself is a paid program, but we only get into what that looks like if we both agree it's the right fit. No pressure, no surprise pitch." 
     },
     { 
